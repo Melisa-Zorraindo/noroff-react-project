@@ -7,7 +7,7 @@
   - ~~react-router-dom~~
   - ~~react-hook-form~~
 
-- [ ] Remove unused files
+- [x] Remove unused files
 
 - [ ] Create <Header />
 
