@@ -1,11 +1,11 @@
 # Noroff React project
 
-- [ ] Install dependencies:
+- [x] Install dependencies:
 
-  - create-react-app
-  - styled-components
-  - react-router-dom
-  - react-hook-form
+  - ~~create-react-app~~
+  - ~~styled-components~~
+  - ~~react-router-dom~~
+  - ~~react-hook-form~~
 
 - [ ] Remove unused files
 
