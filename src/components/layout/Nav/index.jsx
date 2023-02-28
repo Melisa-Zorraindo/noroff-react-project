@@ -1,27 +1,19 @@
-import { Link } from "react-router-dom";
-import "../../../App.css";
-import { StyledNav } from "./styles";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <StyledNav>
+    <nav>
       <ul>
         <li>
-          <Link to="/" className="no-link">
-            Home
-          </Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/src/pages/Product" className="no-link">
-            Product
-          </Link>
+          <NavLink to="/src/pages/Product">Product</NavLink>
         </li>
         <li>
-          <Link to="/src/pages/Contact" className="no-link">
-            Contact
-          </Link>
+          <NavLink to="/src/pages/Contact">Contact</NavLink>
         </li>
       </ul>
-    </StyledNav>
+    </nav>
   );
 }
