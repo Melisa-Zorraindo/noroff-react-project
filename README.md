@@ -9,29 +9,29 @@
 
 - [x] Remove unused files
 
-- [ ] Create <Header />
+- [ ] Create Header
 
-- [ ] Create <Nav />
+- [ ] Create Nav
 
-- [ ] Create <Cart /> Links to Checkout page
+- [ ] Create Cart | Links to Checkout page
 
-- [ ] Create <Footer />
+- [ ] Create Footer
 
-- [ ] Create <Layout />
+- [x] Create Layout
 
 - [ ] Create pages:
 
   - [ ] Homepage
   - [ ] Product page
-  - [ ] Checkout page / Links to checkout success
-  - [ ] Checkout Success page / Clears cart / Has link to homepage
+  - [ ] Checkout page | Links to checkout success
+  - [ ] Checkout Success page | Clears cart | Has link to homepage
   - [ ] Contact page
 
-- [ ] Route pages
+- [x] Route pages
 
-- [ ] Create <Product /> Data to display on CA brief
+- [ ] Create Product | Data to display on CA brief
 
-- [ ] Create <PrimaryButton /> Links to Product page
+- [ ] Create PrimaryButton | Links to Product page
 
 - [ ] Display products on homepage
 
