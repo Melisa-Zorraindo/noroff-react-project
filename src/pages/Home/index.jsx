@@ -23,8 +23,8 @@ export default function Home() {
 
   return (
     <>
-      <h1>Welcome to my homepage</h1>
       <StyledHomePage>
+        <h1>All products</h1>
         {products.map((product) => {
           return (
             <ProductCard
