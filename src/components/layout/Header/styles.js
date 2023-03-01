@@ -16,14 +16,14 @@ export const StyledHeader = styled.header`
 
   label {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     border-left: 1px solid #e0e2e2;
     border-right: 1px solid #e0e2e2;
   }
 
   .cart-container {
     justify-self: center;
-    align-self: end;
+    align-self: center;
   }
 
   .cart-wrapper {
@@ -32,7 +32,7 @@ export const StyledHeader = styled.header`
     position: relative;
   }
 
-  .material-symbols-outlined {
+  .material-symbols-rounded {
     font-size: 2rem;
   }
 
@@ -49,9 +49,9 @@ export const StyledHeader = styled.header`
 
   input {
     width: 100%;
-    height: 2rem;
+    height: 100%;
     border: none;
-    border-radius: 4px;
+    font-size: 1.1rem;
 
     &:focus {
       outline: none;
@@ -61,6 +61,7 @@ export const StyledHeader = styled.header`
   nav {
     border-top: 1px solid #e0e2e2;
     grid-column: -1/1;
+    font-size: 1.1rem;
   }
 
   ul {
@@ -114,11 +115,6 @@ export const StyledHeader = styled.header`
       grid-column-end: 6;
       border-right: none;
       border-top: 1px solid #e0e2e2;
-    }
-
-    input {
-      width: 100%;
-      height: 100%;
     }
 
     .cart-container {
