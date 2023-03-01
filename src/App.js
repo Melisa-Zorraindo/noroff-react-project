@@ -5,11 +5,13 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route path="/src/pages/Cart" element={<Cart />} />
         <Route index element={<Home />} />
         <Route path="/src/pages/Product" element={<Product />} />
         <Route path="/src/pages/Contact" element={<Contact />} />
