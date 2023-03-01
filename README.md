@@ -15,7 +15,7 @@
 
 - [x] Create Cart | ~~Links to Checkout page~~
 
-- [ ] Create Footer
+- [x] Create Footer
 
 - [x] Create Layout
 
