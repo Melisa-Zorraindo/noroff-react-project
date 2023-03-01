@@ -9,7 +9,7 @@
 
 - [x] Remove unused files
 
-- [ ] Create Header
+- [x] Create Header
 
 - [x] Create Nav
 
