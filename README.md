@@ -11,9 +11,9 @@
 
 - [ ] Create Header
 
-- [ ] Create Nav
+- [x] Create Nav
 
-- [ ] Create Cart | Links to Checkout page
+- [x] Create Cart | ~~Links to Checkout page~~
 
 - [ ] Create Footer
 
