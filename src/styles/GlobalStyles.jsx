@@ -16,7 +16,7 @@ box-sizing: border-box;
 body {
     margin: 0;
     font-family: 'Figtree', sans-serif;
-    color: #1f1f1f;
+    color: ${({ theme }) => theme.color.highlight};
 }
 
 ul {
