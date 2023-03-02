@@ -29,7 +29,7 @@ export default function Nav() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/Product">Product</NavLink>
+            <NavLink to="/src/pages/Electronics">Electronics</NavLink>
           </li>
           <li>
             <NavLink to="/src/pages/Contact">Contact</NavLink>
