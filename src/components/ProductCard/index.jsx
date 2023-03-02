@@ -15,8 +15,9 @@ export default function ProductCard({
   //desctructure location and params to conditionally display items
   const { pathname } = useLocation();
   const { id: productId } = useParams();
+
   return (
-    <StyledProductCard>
+    <StyledProductCard location={pathname}>
       <img src={imageUrl} alt={description} />
       <div className="product-data">
         <h2>{title}</h2>

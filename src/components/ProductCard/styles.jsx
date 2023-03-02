@@ -10,7 +10,7 @@ export const StyledProductCard = styled.div`
   padding: 1rem;
 
   img {
-    max-width: 200px;
+    max-width: 100%;
     align-self: center;
   }
 
@@ -30,6 +30,30 @@ export const StyledProductCard = styled.div`
 
     &:hover {
       opacity: 0.9;
+    }
+  }
+
+  //set flex-direction to row-reverse when card is displayed on product page
+  ${({ location }) =>
+    location.includes("/src/pages/Product") &&
+    `
+    flex-direction: row-reverse;
+    width: 80%;
+    gap: 1rem;
+
+     img,
+     .product-data {
+     max-width: 50%;
+     }
+  `}
+
+  //reset flex-direction and img size on small screens
+  @media (max-width: ${({ theme }) => theme.break.small}) {
+    flex-direction: column;
+
+    img,
+    .product-data {
+      max-width: 100%;
     }
   }
 `;
