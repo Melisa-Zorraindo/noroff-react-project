@@ -1,3 +1,9 @@
+import { StyledNotFound } from "./styles";
+
 export default function NotFound() {
-  return <h1>404 Page Not Found</h1>;
+  return (
+    <StyledNotFound>
+      <h1>oops... we couldn't find the page</h1>
+    </StyledNotFound>
+  );
 }
