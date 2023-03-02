@@ -7,7 +7,8 @@ const elegant = {
     neutral: "#fff",
   },
   break: {
-    small: "900px",
+    medium: "900px",
+    small: "550px",
   },
   border: {
     thickness: "1px",

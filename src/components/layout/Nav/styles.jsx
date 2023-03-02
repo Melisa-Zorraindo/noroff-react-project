@@ -37,7 +37,7 @@ export const StyledNavBar = styled.nav`
     color: ${({ theme }) => theme.color.neutral};
   }
 
-  @media (max-width: ${({ theme }) => theme.break.small}) {
+  @media (max-width: ${({ theme }) => theme.break.medium}) {
     display: ${(props) => (props.isVisible ? "block" : "none")};
     ul {
       flex-direction: column;

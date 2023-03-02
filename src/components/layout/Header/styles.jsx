@@ -61,7 +61,7 @@ export const StyledHeader = styled.header`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.break.small}) {
+  @media (max-width: ${({ theme }) => theme.break.medium}) {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1rem repeat(3, 1fr) 4rem 1rem;
     padding: 1rem 0;
