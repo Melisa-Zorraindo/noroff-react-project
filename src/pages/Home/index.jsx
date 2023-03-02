@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { StyledHomePage } from "./styles";
+import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
-
-const url = "https://api.noroff.dev/api/v1/online-shop";
+import { url } from "../../utils/contants";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -23,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <StyledHomePage>
+      <StyledPage>
         <h1>All products</h1>
         {products.map((product) => {
           return (
@@ -35,7 +34,7 @@ export default function Home() {
             />
           );
         })}
-      </StyledHomePage>
+      </StyledPage>
     </>
   );
 }
