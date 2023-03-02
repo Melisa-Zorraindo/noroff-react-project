@@ -28,9 +28,12 @@ export default function Home() {
           return (
             <ProductCard
               key={product.id}
+              id={product.id}
               imageUrl={product.imageUrl}
               title={product.title}
               price={product.price}
+              discountedPrice={product.discountedPrice}
+              description={product.description}
             />
           );
         })}
@@ -38,3 +41,13 @@ export default function Home() {
     </>
   );
 }
+
+/* id,
+  description,
+  discountedPrice,
+  imageUrl,
+  price,
+  rating,
+  reviews,
+  tags,
+  title,*/

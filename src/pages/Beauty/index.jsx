@@ -37,9 +37,12 @@ export default function Beauty() {
         return (
           <ProductCard
             key={item.id}
+            id={item.id}
             imageUrl={item.imageUrl}
             title={item.title}
             price={item.price}
+            discountedPrice={item.discountedPrice}
+            description={item.description}
           />
         );
       })}
