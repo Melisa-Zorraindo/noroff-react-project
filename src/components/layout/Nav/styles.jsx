@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledNavBar = styled.nav`
-  border-top: 1px solid #e0e2e2;
+  border-top: ${({ theme }) =>
+    `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
   grid-column: -1/1;
   font-size: 1.1rem;
 
@@ -15,11 +16,11 @@ export const StyledNavBar = styled.nav`
     transition: 0.5s;
 
     &:hover {
-      background-color: #4f4f4f;
+      background-color: ${({ theme }) => theme.color.highlight};
       cursor: pointer;
 
       a {
-        color: #fff;
+        color: ${({ theme }) => theme.color.neutral};
       }
     }
 
@@ -27,16 +28,16 @@ export const StyledNavBar = styled.nav`
       display: block;
       padding: 0.5rem 1.5rem;
       text-decoration: none;
-      color: #1f1f1f;
+      color: ${({ theme }) => theme.color.highlight};
     }
   }
 
   .active {
-    background-color: #4f4f4f;
-    color: #fff;
+    background-color: ${({ theme }) => theme.color.highlight};
+    color: ${({ theme }) => theme.color.neutral};
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.break.small}) {
     display: ${(props) => (props.isVisible ? "block" : "none")};
     ul {
       flex-direction: column;

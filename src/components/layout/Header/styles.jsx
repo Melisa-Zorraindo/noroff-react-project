@@ -4,7 +4,8 @@ export const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 2fr 1fr 4rem;
   padding: 1rem;
-  border-bottom: 1px solid #e0e2e2;
+  border: ${({ theme }) =>
+    `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
 
   img {
     padding-bottom: 1rem;
@@ -17,8 +18,10 @@ export const StyledHeader = styled.header`
   label {
     display: flex;
     align-items: center;
-    border-left: 1px solid #e0e2e2;
-    border-right: 1px solid #e0e2e2;
+    border-left: ${({ theme }) =>
+      `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
+    border-right: ${({ theme }) =>
+      `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
   }
 
   .cart-container {
@@ -27,7 +30,7 @@ export const StyledHeader = styled.header`
   }
 
   .cart-wrapper {
-    color: #1f1f1f;
+    color: ${({ theme }) => theme.color.highlight};
     text-decoration: none;
     position: relative;
   }
@@ -40,8 +43,8 @@ export const StyledHeader = styled.header`
     position: absolute;
     bottom: 100%;
     left: 70%;
-    background-color: #4f4f4f;
-    color: #fff;
+    background-color: ${({ theme }) => theme.color.highlight};
+    color: ${({ theme }) => theme.color.neutral};
     padding: 0.25rem 0.5rem;
     font-weight: 700;
     border-radius: 50%;
@@ -58,7 +61,7 @@ export const StyledHeader = styled.header`
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.break.small}) {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1rem repeat(3, 1fr) 4rem 1rem;
     padding: 1rem 0;
@@ -77,7 +80,8 @@ export const StyledHeader = styled.header`
       grid-row-end: 3;
       grid-column-end: 6;
       border-right: none;
-      border-top: 1px solid #e0e2e2;
+      border-top: ${({ theme }) =>
+        `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
     }
 
     .cart-container {
@@ -86,7 +90,8 @@ export const StyledHeader = styled.header`
       grid-column-start: 5;
       grid-row-end: 2;
       grid-column-end: 6;
-      border-left: 1px solid #e0e2e2;
+      border-left: ${({ theme }) =>
+        `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
     }
 
     .menu {
@@ -98,7 +103,7 @@ export const StyledHeader = styled.header`
       width: 2.5rem;
       border: none;
       background-color: transparent;
-      color: #1f1f1f;
+      color: ${({ theme }) => theme.color.highlight};
       cursor: pointer;
     }
   }

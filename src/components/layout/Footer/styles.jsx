@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-  border-top: 1px solid #e0e2e2;
+  border-top: ${({ theme }) =>
+    `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
   text-align: center;
   padding-bottom: 1rem;
 
@@ -13,6 +14,6 @@ export const StyledFooter = styled.footer`
   }
 
   a {
-    color: #1f1f1f;
+    color: ${({ theme }) => theme.color.highlight};
   }
 `;
