@@ -32,6 +32,9 @@ export default function Nav() {
             <NavLink to="/src/pages/Electronics">Electronics</NavLink>
           </li>
           <li>
+            <NavLink to="/src/pages/Beauty">Beauty</NavLink>
+          </li>
+          <li>
             <NavLink to="/src/pages/Contact">Contact</NavLink>
           </li>
         </ul>
