@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Electronics from "./pages/Electronics";
 import Beauty from "./pages/Beauty";
 import Fashion from "./pages/Fashion";
+import Product from "./pages/Product";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/src/pages/Electronics" element={<Electronics />} />
         <Route path="/src/pages/Beauty" element={<Beauty />} />
         <Route path="/src/pages/Fashion" element={<Fashion />} />
+        <Route path="/src/pages/Product/:id" element={<Product />} />
         <Route path="/src/pages/Contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Route>

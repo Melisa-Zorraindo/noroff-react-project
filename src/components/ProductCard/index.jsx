@@ -1,14 +1,37 @@
 import { StyledProductCard } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
-export default function ProductCard({ title, imageUrl, price }) {
+export default function ProductCard({
+  id,
+  description,
+  discountedPrice,
+  imageUrl,
+  price,
+  rating,
+  reviews,
+  tags,
+  title,
+}) {
+  //desctructure location and params to conditionally display items
+  const { pathname } = useLocation();
+  const { id: productId } = useParams();
   return (
     <StyledProductCard>
-      <img src={imageUrl} alt="techtopia logo" />
+      <img src={imageUrl} alt={description} />
       <div className="product-data">
         <h2>{title}</h2>
-        <p>{price} NOK</p>
-        <Link to="/src/pages/Product">View product</Link>
+        {pathname === `/src/pages/Product/${productId}` && <p>{description}</p>}
+        <p>{discountedPrice} NOK</p>
+        <p>
+          {price !== discountedPrice &&
+            Math.trunc(((price - discountedPrice) / discountedPrice) * 100)}
+        </p>
+        <span>{price !== discountedPrice && "% off"}</span>
+        {pathname === `/src/pages/Product/${productId}` ? (
+          <button>Add to cart</button>
+        ) : (
+          <Link to={`/src/pages/Product/${id}`}>View product</Link>
+        )}
       </div>
     </StyledProductCard>
   );

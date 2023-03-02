@@ -1,0 +1,53 @@
+import React, { useState, useEffect } from "react";
+import { StyledProduct } from "./styles";
+import ProductCard from "../../components/ProductCard";
+import { useParams } from "react-router-dom";
+import { url } from "../../utils/contants";
+
+export default function Product() {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  let { id } = useParams();
+
+  useEffect(() => {
+    async function fetchProduct() {
+      try {
+        setIsLoading(true);
+        setIsError(false);
+
+        const response = await fetch(url + id);
+        const data = await response.json();
+
+        setData(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProduct();
+  }, [id]);
+
+  if (isLoading || !data) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>An error occurred</div>;
+  }
+
+  return (
+    <StyledProduct>
+      <h1>{data.title}</h1>
+      <ProductCard
+        imageUrl={data.imageUrl}
+        title={data.title}
+        price={data.price}
+        discountedPrice={data.discountedPrice}
+        description={data.description}
+      />
+    </StyledProduct>
+  );
+}
