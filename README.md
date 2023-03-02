@@ -21,19 +21,19 @@
 
 - [ ] Create pages:
 
-  - [ ] Homepage
-  - [ ] Product page
+  - [x] Homepage
+  - [x] Product page
   - [ ] Checkout page | Links to checkout success
   - [ ] Checkout Success page | Clears cart | Has link to homepage
   - [ ] Contact page
 
 - [x] Route pages
 
-- [ ] Create Product | Data to display on CA brief
+- [x] Create Product | Data to display on CA brief
 
 - [ ] Create PrimaryButton | Links to Product page
 
-- [ ] Display products on homepage
+- [x] Display products on homepage
 
 - [ ] Search bar with autocomplete feature filters products by title
 
