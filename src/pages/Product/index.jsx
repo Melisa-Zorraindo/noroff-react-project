@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledProduct } from "./styles";
+import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
 import { useParams } from "react-router-dom";
 import { url } from "../../utils/contants";
@@ -39,7 +39,7 @@ export default function Product() {
   }
 
   return (
-    <StyledProduct>
+    <StyledPage>
       <h1>{data.title}</h1>
       <ProductCard
         imageUrl={data.imageUrl}
@@ -48,6 +48,6 @@ export default function Product() {
         discountedPrice={data.discountedPrice}
         description={data.description}
       />
-    </StyledProduct>
+    </StyledPage>
   );
 }
