@@ -1,3 +1,11 @@
+import { StyledContactPage } from "./styles";
+import ContactForm from "../../components/ContactForm";
+
 export default function Contact() {
-    return <h1>Welcome to my contact page</h1>;
-  }
+  return (
+    <StyledContactPage>
+      <h1>Get in touch</h1>
+      <ContactForm />
+    </StyledContactPage>
+  );
+}
