@@ -37,7 +37,7 @@ export default function ProductCard({
         <p>{discountedPrice} NOK</p>
 
         {pathname === `/src/pages/Product/${productId}` ? (
-          <PrimaryButton />
+          <PrimaryButton text={"Add to cart"} />
         ) : (
           <Link to={`/src/pages/Product/${id}`}>View product</Link>
         )}
