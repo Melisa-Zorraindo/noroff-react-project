@@ -1,81 +1,92 @@
 import { StyledContactForm } from "./styles";
 import PrimaryButton from "../PrimaryButton";
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup
+  .object({
+    fullName: yup
+      .string()
+      .matches(/^[^0-9]*$/, "Must not contain any digits")
+      .min(3, "Must be at least 3 characters long")
+      .required(),
+    subject: yup
+      .string()
+      .min(3, "Must be at least 3 characters long")
+
+      .required(),
+    email: yup
+      .string()
+      .matches(/\S+@\S+\.\S+/, "Must be a valid email address")
+      .required(),
+    body: yup
+      .string()
+      .min(3, "Must be at least 3 characters long")
+      .max(5000, "Cannot be longer than 5000 characters")
+      .required(),
+  })
+  .required();
 
 export default function ContactForm() {
-  /*  
-      THIS IS THE SCRIMBA WAY
-      const [formData, setFormData] = useState({
-    fullname: "",
-    subject: "",
-    email: "",
-    body: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
-  }); */
-
-  const [fullName, setFullName] = useState("");
-  const [subject, setSubject] = useState("");
-  const [email, setEmail] = useState("");
-  const [body, setBody] = useState("");
-
-  function handleChange(event) {
-    event.target.name === "full-name" && setFullName(event.target.value);
-
-    event.target.name === "subject" && setSubject(event.target.value);
-
-    event.target.name === "email" && setEmail(event.target.value);
-
-    event.target.name === "body" && setBody(event.target.value);
-  }
-
-  function handleSubmission(event) {
-    event.preventDefault();
-
-    const formData = {
-      fullName,
-      subject,
-      email,
-      body,
-    };
-
-    console.log(formData);
+  function handleSubmission(data) {
+    console.log(data);
   }
 
   return (
-    <StyledContactForm onSubmit={handleSubmission}>
+    <StyledContactForm onSubmit={handleSubmit(handleSubmission)}>
       <fieldset>
         <legend>All fields are required</legend>
-        <label htmlFor="full-name">Full name</label>
+        <label htmlFor="fullName">Full name</label>
         <input
-          name="full-name"
+          {...register("fullName", {
+            required: true,
+            minLength: 3,
+          })}
+          name="fullName"
           placeholder="Full name"
-          value={fullName}
-          onChange={handleChange}
         ></input>
+        <p className="error-message">{errors.fullName?.message}</p>
 
         <label htmlFor="subject">Subject</label>
         <input
+          {...register("subject", {
+            required: true,
+            minLength: 3,
+          })}
           name="subject"
           placeholder="Subject"
-          value={subject}
-          onChange={handleChange}
         ></input>
+        <p className="error-message">{errors.subject?.message}</p>
 
         <label htmlFor="email">Email</label>
         <input
+          {...register("email", {
+            required: true,
+          })}
+          type="email"
           name="email"
           placeholder="Email"
-          value={email}
-          onChange={handleChange}
         ></input>
+        <p className="error-message">{errors.email?.message}</p>
 
         <label htmlFor="body">Message</label>
         <textarea
+          {...register("body", {
+            required: true,
+            minLength: 3,
+          })}
           name="body"
           placeholder="Write your message here"
-          value={body}
-          onChange={handleChange}
         ></textarea>
+        <p className="error-message">{errors.body?.message}</p>
 
         <div className="button-container">
           <PrimaryButton text={"Submit"} />

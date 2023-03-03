@@ -13,8 +13,8 @@ export const StyledContactForm = styled.form`
   input,
   textarea {
     display: block;
-    margin: 0.5rem 0 1.5rem;
     width: 100%;
+    margin-top: 0.5rem;
     border: ${({ theme }) =>
       `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
   }
@@ -25,6 +25,12 @@ export const StyledContactForm = styled.form`
 
   textarea {
     height: 6rem;
+  }
+
+  .error-message {
+    font-size: 0.85rem;
+    margin: 0 0 1.5rem;
+    color: red;
   }
 
   .button-container {
