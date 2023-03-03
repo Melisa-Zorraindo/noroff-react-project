@@ -1,5 +1,5 @@
 import { StyledPrimaryButton } from "./styles";
 
-export default function PrimaryButton() {
-  return <StyledPrimaryButton>Add to cart</StyledPrimaryButton>;
+export default function PrimaryButton({ text }) {
+  return <StyledPrimaryButton>{text}</StyledPrimaryButton>;
 }
