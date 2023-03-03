@@ -8,9 +8,6 @@ export default function ProductCard({
   discountedPrice,
   imageUrl,
   price,
-  rating,
-  reviews,
-  tags,
   title,
 }) {
   //desctructure location and params to conditionally display items
