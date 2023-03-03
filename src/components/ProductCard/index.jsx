@@ -1,4 +1,5 @@
 import { StyledProductCard } from "./styles";
+import PrimaryButton from "../PrimaryButton";
 import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function ProductCard({
@@ -39,7 +40,7 @@ export default function ProductCard({
         <p>{discountedPrice} NOK</p>
 
         {pathname === `/src/pages/Product/${productId}` ? (
-          <button>Add to cart</button>
+          <PrimaryButton />
         ) : (
           <Link to={`/src/pages/Product/${id}`}>View product</Link>
         )}
