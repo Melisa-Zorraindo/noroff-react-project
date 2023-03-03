@@ -25,13 +25,13 @@
   - [x] Product page
   - [ ] Checkout page | Links to checkout success
   - [ ] Checkout Success page | Clears cart | Has link to homepage
-  - [ ] Contact page
+  - [x] Contact page
 
 - [x] Route pages
 
 - [x] Create Product | Data to display on CA brief
 
-- [ ] Create PrimaryButton | Links to Product page
+- [x] Create PrimaryButton | Links to Product page
 
 - [x] Display products on homepage
 
@@ -39,7 +39,7 @@
 
 - [ ] Create cart state that adds product to cart when button clicked
 
-- [ ] Create form on contact page:
+- [x] Create form on contact page:
 
   - Full name: req, min 3 characters
   - Subject: req, min 3 characters
@@ -47,7 +47,7 @@
   - Body: req, min 3 characters
   - Submit button
 
-- [ ] Log data fetched from form
+- [x] Log data fetched from form
 
 - [ ] Deploy to Netlify
 
