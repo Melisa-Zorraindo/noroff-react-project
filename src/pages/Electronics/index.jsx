@@ -7,6 +7,8 @@ export default function Electronics() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    document.title = "Techtopia | Electronics";
+
     async function fetchProducts() {
       try {
         const response = await fetch(url);

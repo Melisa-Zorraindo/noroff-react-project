@@ -20,6 +20,9 @@ export default function Product() {
         const response = await fetch(url + id);
         const data = await response.json();
 
+        //set document title including product name
+        document.title = `Techtopia | ${data.title}`;
+
         setData(data);
       } catch (error) {
         console.log(error);

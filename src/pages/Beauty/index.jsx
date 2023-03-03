@@ -7,6 +7,8 @@ export default function Beauty() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    document.title = "Techtopia | Beauty";
+
     async function fetchProducts() {
       try {
         const response = await fetch(url);
