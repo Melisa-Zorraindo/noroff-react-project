@@ -20,6 +20,27 @@ export const StyledProductCard = styled.div`
     margin: 1rem 0;
   }
 
+  .promo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .promo-container-hidden {
+    display: none;
+  }
+
+  .old-price {
+    text-decoration: line-through;
+  }
+
+  .discount {
+    background-color: red;
+    color: ${({ theme }) => theme.color.neutral};
+    padding: 0.3rem;
+    border-radius: 4px;
+  }
+
   a {
     text-decoration: none;
     text-transform: uppercase;

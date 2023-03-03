@@ -22,12 +22,22 @@ export default function ProductCard({
       <div className="product-data">
         <h2>{title}</h2>
         {pathname === `/src/pages/Product/${productId}` && <p>{description}</p>}
+        <div
+          className={
+            price !== discountedPrice
+              ? "promo-container"
+              : "promo-container-hidden"
+          }
+        >
+          <p className="old-price">{price !== discountedPrice ? price : ""}</p>
+          <p className="discount">
+            {price !== discountedPrice &&
+              Math.trunc(((price - discountedPrice) / discountedPrice) * 100)}
+            {price !== discountedPrice && "% OFF"}
+          </p>
+        </div>
         <p>{discountedPrice} NOK</p>
-        <p>
-          {price !== discountedPrice &&
-            Math.trunc(((price - discountedPrice) / discountedPrice) * 100)}
-        </p>
-        <span>{price !== discountedPrice && "% off"}</span>
+
         {pathname === `/src/pages/Product/${productId}` ? (
           <button>Add to cart</button>
         ) : (
