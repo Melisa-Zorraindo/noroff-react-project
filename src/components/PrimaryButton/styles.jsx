@@ -8,6 +8,7 @@ export const StyledPrimaryButton = styled.button`
   cursor: pointer;
   padding: 0.5rem 0;
   text-align: center;
+  font-size: 1.025rem;
 
   &:hover {
     opacity: 0.9;
