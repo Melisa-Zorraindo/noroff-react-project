@@ -9,7 +9,7 @@ const schema = yup
   .object({
     fullName: yup
       .string()
-      .matches(/^[^0-9]*$/, "Must not contain any digits")
+      .matches(/^[a-zA-Z\s]*$/, "Must not contain any numbers or symbols")
       .min(3, "Must be at least 3 characters long")
       .required(),
     subject: yup
