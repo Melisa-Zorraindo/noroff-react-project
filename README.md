@@ -1,45 +1,45 @@
 # Noroff React project
 
-- [ ] Install dependencies:
+- [x] Install dependencies:
 
-  - create-react-app
-  - styled-components
-  - react-router-dom
-  - react-hook-form
+  - ~~create-react-app~~
+  - ~~styled-components~~
+  - ~~react-router-dom~~
+  - ~~react-hook-form~~
 
-- [ ] Remove unused files
+- [x] Remove unused files
 
-- [ ] Create <Header />
+- [x] Create Header
 
-- [ ] Create <Nav />
+- [x] Create Nav
 
-- [ ] Create <Cart /> Links to Checkout page
+- [x] Create Cart | ~~Links to Checkout page~~
 
-- [ ] Create <Footer />
+- [x] Create Footer
 
-- [ ] Create <Layout />
+- [x] Create Layout
 
 - [ ] Create pages:
 
-  - [ ] Homepage
-  - [ ] Product page
-  - [ ] Checkout page / Links to checkout success
-  - [ ] Checkout Success page / Clears cart / Has link to homepage
-  - [ ] Contact page
+  - [x] Homepage
+  - [x] Product page
+  - [ ] Checkout page | Links to checkout success
+  - [ ] Checkout Success page | Clears cart | Has link to homepage
+  - [x] Contact page
 
-- [ ] Route pages
+- [x] Route pages
 
-- [ ] Create <Product /> Data to display on CA brief
+- [x] Create Product | Data to display on CA brief
 
-- [ ] Create <PrimaryButton /> Links to Product page
+- [x] Create PrimaryButton | Links to Product page
 
-- [ ] Display products on homepage
+- [x] Display products on homepage
 
 - [ ] Search bar with autocomplete feature filters products by title
 
 - [ ] Create cart state that adds product to cart when button clicked
 
-- [ ] Create form on contact page:
+- [x] Create form on contact page:
 
   - Full name: req, min 3 characters
   - Subject: req, min 3 characters
@@ -47,7 +47,7 @@
   - Body: req, min 3 characters
   - Submit button
 
-- [ ] Log data fetched from form
+- [x] Log data fetched from form
 
 - [ ] Deploy to Netlify
 
