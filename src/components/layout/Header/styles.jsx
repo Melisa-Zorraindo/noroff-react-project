@@ -15,15 +15,6 @@ export const StyledHeader = styled.header`
     display: none;
   }
 
-  label {
-    display: flex;
-    align-items: center;
-    border-left: ${({ theme }) =>
-      `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
-    border-right: ${({ theme }) =>
-      `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
-  }
-
   .cart-container {
     justify-self: center;
     align-self: center;
@@ -72,16 +63,6 @@ export const StyledHeader = styled.header`
       grid-column-start: 2;
       grid-row-end: 2;
       grid-column-end: 5;
-    }
-
-    label {
-      grid-row-start: 2;
-      grid-column-start: 3;
-      grid-row-end: 3;
-      grid-column-end: 6;
-      border-right: none;
-      border-top: ${({ theme }) =>
-        `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
     }
 
     .cart-container {
