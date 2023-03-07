@@ -34,6 +34,16 @@ export const StyledSearchBar = styled.div`
     }
   }
 
+  .selected {
+    background-color: ${({ theme }) => theme.color.highlight};
+    color: ${({ theme }) => theme.color.neutral};
+  }
+
+  .unselected {
+    background-color: ${({ theme }) => theme.color.support};
+    color: ${({ theme }) => theme.color.highlight};
+  }
+
   @media (max-width: ${({ theme }) => theme.break.medium}) {
     grid-row-start: 2;
     grid-column-start: 3;
