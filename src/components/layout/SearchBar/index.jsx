@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyledSearchBar } from "./styles";
+import { Link, useLocation } from "react-router-dom";
 import { url } from "../../../utils/contants";
 
 export default function SearchBar() {
@@ -8,6 +9,8 @@ export default function SearchBar() {
   const [userInput, setUserInput] = useState("");
 
   const [suggestions, setSuggestions] = useState([]);
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     async function fetchData() {
@@ -23,7 +26,11 @@ export default function SearchBar() {
 
     fetchData();
     console.log("Component mounted");
-  }, []);
+
+    //remove options from searchbar
+    setSuggestions([]);
+    setUserInput("");
+  }, [pathname]);
 
   function handleChange(event) {
     const query = event.target.value.toLowerCase();
@@ -42,10 +49,6 @@ export default function SearchBar() {
     }
   }
 
-  function handleClick(event) {
-    console.log(event.target.innerHTML.toLowerCase());
-  }
-
   let selected = -1;
 
   function handleNavigation(event) {
@@ -53,7 +56,7 @@ export default function SearchBar() {
 
     switch (key) {
       case "Enter":
-        console.log(event.target.value);
+        goToPage();
         break;
       case "ArrowDown":
         navigateSuggestions(1, event.target);
@@ -69,6 +72,13 @@ export default function SearchBar() {
     }
   }
 
+  function goToPage() {
+    const chosenSuggestion = suggestions[selected];
+    chosenSuggestion
+      ? window.location.replace(`/src/pages/Product/${chosenSuggestion.id}`)
+      : window.location.replace("/src/pages/SearchResults");
+  }
+
   function navigateSuggestions(direction, target) {
     const newSelected = selected + direction;
     if (newSelected >= 0 && newSelected < suggestions.length) {
@@ -77,13 +87,9 @@ export default function SearchBar() {
       const selectedSuggestion = suggestions[selected].id;
       suggestions.forEach((suggestion) => {
         const li = document.getElementById(suggestion.id);
-        if (suggestion.id === selectedSuggestion) {
-          li.classList.add("selected");
-          li.classList.remove("unselected");
-        } else {
-          li.classList.add("unselected");
-          li.classList.remove("selected");
-        }
+        suggestion.id === selectedSuggestion
+          ? li.classList.add("selected")
+          : li.classList.remove("selected");
       });
     }
   }
@@ -112,8 +118,8 @@ export default function SearchBar() {
       <ul>
         {suggestions.map((item) => {
           return (
-            <li key={item.id} onClick={handleClick} id={item.id}>
-              {item.title}
+            <li key={item.id} id={item.id}>
+              <Link to={`/src/pages/Product/${item.id}`}>{item.title}</Link>
             </li>
           );
         })}

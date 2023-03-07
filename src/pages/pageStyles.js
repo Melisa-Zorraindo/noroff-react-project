@@ -10,6 +10,5 @@ export const StyledPage = styled.div`
 
   h1 {
     flex: 100%;
-    padding-left: 1rem;
   }
 `;

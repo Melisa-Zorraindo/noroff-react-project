@@ -8,6 +8,7 @@ import Fashion from "./pages/Fashion";
 import Product from "./pages/Product";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/src/pages/Product/:id" element={<Product />} />
         <Route path="/src/pages/Contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/src/pages/SearchResults" element={<SearchResults />} />
       </Route>
     </Routes>
   );
