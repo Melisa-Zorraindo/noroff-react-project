@@ -13,6 +13,8 @@ export const StyledSearchBar = styled.div`
   .input-wrapper {
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: ${({ theme }) => theme.color.highlight};
   }
 
   ul {
@@ -25,12 +27,26 @@ export const StyledSearchBar = styled.div`
 
   li {
     transition: 0.5s;
-    padding: 0.5rem 1rem;
 
-    &:hover {
-      background-color: ${({ theme }) => theme.color.highlight};
+    a {
+      padding: 0.5rem 1rem;
+      display: block;
+      text-decoration: none;
+      color: ${({ theme }) => theme.color.highlight};
+
+      &:hover {
+        background-color: ${({ theme }) => theme.color.highlight};
+        color: ${({ theme }) => theme.color.neutral};
+        cursor: pointer;
+      }
+    }
+  }
+
+  .selected {
+    background-color: ${({ theme }) => theme.color.highlight};
+
+    a {
       color: ${({ theme }) => theme.color.neutral};
-      cursor: pointer;
     }
   }
 

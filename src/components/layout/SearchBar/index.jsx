@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyledSearchBar } from "./styles";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { url } from "../../../utils/contants";
 
 export default function SearchBar() {
@@ -8,6 +9,10 @@ export default function SearchBar() {
   const [userInput, setUserInput] = useState("");
 
   const [suggestions, setSuggestions] = useState([]);
+
+  const { pathname } = useLocation();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -23,7 +28,11 @@ export default function SearchBar() {
 
     fetchData();
     console.log("Component mounted");
-  }, []);
+
+    //remove options from searchbar
+    setSuggestions([]);
+    setUserInput("");
+  }, [pathname]);
 
   function handleChange(event) {
     const query = event.target.value.toLowerCase();
@@ -42,8 +51,54 @@ export default function SearchBar() {
     }
   }
 
-  function handleClick(event) {
-    console.log(event.target.innerHTML.toLowerCase());
+  let selected = -1;
+
+  function handleNavigation(event) {
+    const key = event.key;
+
+    switch (key) {
+      case "Enter":
+        goToPage();
+        break;
+      case "ArrowDown":
+        navigateSuggestions(1, event.target);
+        break;
+      case "ArrowUp":
+        navigateSuggestions(-1, event.target);
+        break;
+      case "Backspace":
+        removeStyles();
+        break;
+      default:
+        break;
+    }
+  }
+
+  function goToPage() {
+    const chosenSuggestion = suggestions[selected];
+    chosenSuggestion && navigate(`/src/pages/Product/${chosenSuggestion.id}`);
+  }
+
+  function navigateSuggestions(direction, target) {
+    const newSelected = selected + direction;
+    if (newSelected >= 0 && newSelected < suggestions.length) {
+      selected = newSelected;
+      target.value = suggestions[selected].title;
+      const selectedSuggestion = suggestions[selected].id;
+      suggestions.forEach((suggestion) => {
+        const li = document.getElementById(suggestion.id);
+        suggestion.id === selectedSuggestion
+          ? li.classList.add("selected")
+          : li.classList.remove("selected");
+      });
+    }
+  }
+
+  function removeStyles() {
+    suggestions.forEach((suggestion) => {
+      const li = document.getElementById(suggestion.id);
+      li.classList.remove("selected");
+    });
   }
 
   return (
@@ -57,13 +112,14 @@ export default function SearchBar() {
           name="search"
           value={userInput}
           onChange={handleChange}
+          onKeyDown={handleNavigation}
         />
       </div>
       <ul>
         {suggestions.map((item) => {
           return (
-            <li key={item.id} onClick={handleClick}>
-              {item.title}
+            <li key={item.id} id={item.id}>
+              <Link to={`/src/pages/Product/${item.id}`}>{item.title}</Link>
             </li>
           );
         })}
