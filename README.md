@@ -49,7 +49,7 @@
 
 - [x] Log data fetched from form
 
-- [ ] Deploy to Netlify
+- [x] Deploy to Netlify
 
 - [ ] Add testing
 
