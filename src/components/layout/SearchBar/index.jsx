@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyledSearchBar } from "./styles";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { url } from "../../../utils/contants";
 
 export default function SearchBar() {
@@ -11,6 +11,8 @@ export default function SearchBar() {
   const [suggestions, setSuggestions] = useState([]);
 
   const { pathname } = useLocation();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -74,9 +76,7 @@ export default function SearchBar() {
 
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
-    chosenSuggestion
-      ? window.location.replace(`/src/pages/Product/${chosenSuggestion.id}`)
-      : window.location.replace("/src/pages/SearchResults");
+    chosenSuggestion && navigate(`/src/pages/Product/${chosenSuggestion.id}`);
   }
 
   function navigateSuggestions(direction, target) {
