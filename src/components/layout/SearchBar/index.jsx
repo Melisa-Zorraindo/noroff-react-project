@@ -76,7 +76,9 @@ export default function SearchBar() {
 
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
-    chosenSuggestion && navigate(`/src/pages/Product/${chosenSuggestion.id}`);
+    chosenSuggestion
+      ? navigate(`/src/pages/Product/${chosenSuggestion.id}`)
+      : navigate(`/src/pages/SearchResults/${userInput}`);
   }
 
   function navigateSuggestions(direction, target) {
