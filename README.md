@@ -35,7 +35,7 @@
 
 - [x] Display products on homepage
 
-- [ ] Search bar with autocomplete feature filters products by title
+- [x] Search bar with autocomplete feature filters products by title
 
 - [ ] Create cart state that adds product to cart when button clicked
 
