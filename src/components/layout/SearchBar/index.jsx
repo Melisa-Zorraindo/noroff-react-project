@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyledSearchBar } from "./styles";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { url } from "../../../utils/contants";
+import { url } from "../../../utils/constants";
 
 export default function SearchBar() {
   const [data, setData] = useState([]);

@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
-import { url } from "../../utils/contants";
 
-export default function Home() {
-  const [products, setProducts] = useState([]);
-
+export default function Home({ products }) {
   useEffect(() => {
     document.title = "Techtopia | Homepage";
-
-    async function fetchProducts() {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchProducts();
   }, []);
 
   return (
@@ -43,13 +28,3 @@ export default function Home() {
     </>
   );
 }
-
-/* id,
-  description,
-  discountedPrice,
-  imageUrl,
-  price,
-  rating,
-  reviews,
-  tags,
-  title,*/
