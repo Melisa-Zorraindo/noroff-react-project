@@ -54,3 +54,19 @@
 - [ ] Add testing
 
 - [ ] Edit README.md
+
+- [ ] Change favicon
+
+- [ ] Make a loader component for user feedback when fetching data from API
+
+- [ ] Make a feedback component for: error API, checkout success, not found page
+
+- [ ] Restructure files: all styles in same folder
+
+- [ ] Refactor components spread operator Scrimba
+
+- [x] Refactor filter and add it to utils
+
+- [ ] Add pop up for item succesfully added to cart
+
+- [ ] Add pop up to confirm item clearance from cart
