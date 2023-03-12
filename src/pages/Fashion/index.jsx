@@ -1,21 +1,15 @@
 import React, { useEffect } from "react";
 import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
+import filterByTags from "../../utils/filter";
 
 export default function Fashion({ products }) {
   useEffect(() => {
     document.title = "Techtopia | Fashion";
   }, []);
 
-  //filter items by tag
-  const fashion = products.filter((product) => {
-    return (
-      product.tags.includes("fashion") ||
-      product.tags.includes("shoes") ||
-      product.tags.includes("bags") ||
-      product.tags.includes("glasses")
-    );
-  });
+  const fashionTags = ["fashion", "shoes", "bags", "glasses"];
+  const fashion = filterByTags(products, fashionTags);
 
   return (
     <StyledPage>

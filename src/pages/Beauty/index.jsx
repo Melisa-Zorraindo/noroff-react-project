@@ -1,20 +1,15 @@
 import React, { useEffect } from "react";
 import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
+import filterByTags from "../../utils/filter";
 
 export default function Beauty({ products }) {
   useEffect(() => {
     document.title = "Techtopia | Beauty";
   }, []);
 
-  //filter items by tag
-  const beauty = products.filter((product) => {
-    return (
-      product.tags.includes("beauty") ||
-      product.tags.includes("perfume") ||
-      product.tags.includes("shampoo")
-    );
-  });
+  const beautyTags = ["beauty", "perfume", "shampoo"];
+  const beauty = filterByTags(products, beautyTags);
 
   return (
     <StyledPage>

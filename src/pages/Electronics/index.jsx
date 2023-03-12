@@ -1,20 +1,22 @@
 import React, { useEffect } from "react";
 import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
+import filterByTags from "../../utils/filter";
 
 export default function Electronics({ products }) {
   useEffect(() => {
     document.title = "Techtopia | Electronics";
   }, []);
 
-  //filter items by tag
-  const electronics = products.filter((product) => {
+  const electronicsTags = ["electronics", "headphones", "watch"];
+  const electronics = filterByTags(products, electronicsTags);
+  /* const electronics = products.filter((product) => {
     return (
       product.tags.includes("electronics") ||
       product.tags.includes("headphones") ||
       product.tags.includes("watch")
     );
-  });
+  }); */
 
   return (
     <StyledPage>
