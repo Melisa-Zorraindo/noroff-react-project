@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { StyledSearchBar } from "./styles";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { url } from "../../../utils/constants";
+import { useProductsStore } from "../../../utils/stateManagement";
+import { shallow } from "zustand/shallow";
 
 export default function SearchBar() {
-  const [data, setData] = useState([]);
-
   const [userInput, setUserInput] = useState("");
 
   const [suggestions, setSuggestions] = useState([]);
@@ -14,20 +13,14 @@ export default function SearchBar() {
 
   const navigate = useNavigate();
 
+  const { availableProducts } = useProductsStore(
+    (state) => ({
+      availableProducts: state.availableProducts,
+    }),
+    shallow
+  );
+
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-
-        setData(json);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchData();
-
     //remove options from searchbar
     setSuggestions([]);
     setUserInput("");
@@ -39,7 +32,7 @@ export default function SearchBar() {
 
     //delay suggestions to display more accurate results
     if (query.length > 2) {
-      const filteredSuggestions = data.filter((product) =>
+      const filteredSuggestions = availableProducts.filter((product) =>
         product.title.toLowerCase().includes(query)
       );
       setSuggestions(filteredSuggestions);
