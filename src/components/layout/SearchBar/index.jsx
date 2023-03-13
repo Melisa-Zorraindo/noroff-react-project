@@ -27,7 +27,6 @@ export default function SearchBar() {
     }
 
     fetchData();
-    console.log("Component mounted");
 
     //remove options from searchbar
     setSuggestions([]);

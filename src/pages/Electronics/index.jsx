@@ -10,13 +10,6 @@ export default function Electronics({ products }) {
 
   const electronicsTags = ["electronics", "headphones", "watch"];
   const electronics = filterByTags(products, electronicsTags);
-  /* const electronics = products.filter((product) => {
-    return (
-      product.tags.includes("electronics") ||
-      product.tags.includes("headphones") ||
-      product.tags.includes("watch")
-    );
-  }); */
 
   return (
     <StyledPage>
