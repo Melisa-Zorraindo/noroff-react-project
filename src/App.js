@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { url } from "./utils/constants";
+import React, { useEffect } from "react";
+import { useProductsStore } from "./utils/stateManagement";
+import { shallow } from "zustand/shallow";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
@@ -13,54 +14,45 @@ import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
 
 function App() {
-  const [products, setProducts] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const { availableProducts, fetchProducts, isLoading, error } =
+    useProductsStore(
+      (state) => ({
+        availableProducts: state.availableProducts,
+        fetchProducts: state.fetchProducts,
+        isLoading: state.isLoading,
+        error: state.error,
+      }),
+      shallow
+    );
 
   useEffect(() => {
-    async function fetchProduct() {
-      try {
-        setIsLoading(true);
-        setIsError(false);
+    fetchProducts();
+  }, [fetchProducts]);
 
-        const response = await fetch(url);
-        const data = await response.json();
-
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchProduct();
-  }, []);
-
-  if (isLoading || !products) {
+  if (isLoading || !availableProducts) {
     return <div>Loading...</div>;
   }
 
-  if (isError) {
-    return <div>An error occurred</div>;
+  if (error) {
+    return <div>An error occurred: {error}</div>;
   }
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/src/pages/Cart" element={<Cart />} />
-        <Route index element={<Home products={products} />} />
+        <Route index element={<Home products={availableProducts} />} />
         <Route
           path="/src/pages/Electronics"
-          element={<Electronics products={products} />}
+          element={<Electronics products={availableProducts} />}
         />
         <Route
           path="/src/pages/Beauty"
-          element={<Beauty products={products} />}
+          element={<Beauty products={availableProducts} />}
         />
         <Route
           path="/src/pages/Fashion"
-          element={<Fashion products={products} />}
+          element={<Fashion products={availableProducts} />}
         />
         <Route path="/src/pages/Product/:id" element={<Product />} />
         <Route path="/src/pages/Contact" element={<Contact />} />
