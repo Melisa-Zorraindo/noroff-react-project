@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useProductsStore } from "../../utils/stateManagement";
 import { shallow } from "zustand/shallow";
-import { StyledPage } from "../pageStyles";
+import { StyledCartPage } from "./styles";
 import CartItem from "../../components/CartItem";
+import PrimaryButton from "../../components/PrimaryButton";
 
 export default function Cart() {
   useEffect(() => {
@@ -27,35 +28,70 @@ export default function Cart() {
     total.push(item.count * item.price);
   });
 
-  function calcTotal() {
-    return total.reduce(
+  function calcSubtotal() {
+    const sum = total.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
+
+    return sum.toFixed(2);
+  }
+
+  function calcVAT() {
+    const sum = calcSubtotal();
+    return ((sum * 25) / 100).toFixed(2);
+  }
+
+  function calcTotal() {
+    const vat = parseFloat(calcVAT());
+    const subtotal = parseFloat(calcSubtotal());
+    return vat + subtotal;
   }
 
   return (
-    <StyledPage>
+    <StyledCartPage>
+      <h1>Shopping cart</h1>
       {cartItems.length > 0 ? (
         <>
-          {cartItems.map((item) => (
-            <CartItem
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              count={item.count}
-              price={item.price}
-            />
-          ))}
-          <div>Total: {calcTotal()}</div>
-          <button onClick={() => clearCart()}>Clear cart</button>
+          <div className="purchase">
+            {cartItems.map((item) => (
+              <CartItem
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                count={item.count}
+                price={item.price}
+                imageUrl={item.imageUrl}
+              />
+            ))}
+          </div>
+          <div className="checkout-container">
+            <h3>Order summary</h3>
+            <div className="price-summary">
+              <p>Subtotal</p>
+              <p>{calcSubtotal()} NOK</p>
+            </div>
+            <div className="price-summary">
+              <p>Shipping</p>
+              <p>Free</p>
+            </div>
+            <div className="price-summary">
+              <p>VAT 25%</p>
+              <p>{calcVAT()} NOK</p>
+            </div>
+            <div className="price-summary">
+              <p className="total">Total</p>
+              <p className="total">{calcTotal()} NOK</p>
+            </div>
+            <PrimaryButton onClick={() => clearCart()} text={"Clear cart"} />
+          </div>
         </>
       ) : (
-        <>
+        <div>
           <div>There are no items in the cart</div>
           <Link to={`/`}>Go shopping</Link>
-        </>
+        </div>
       )}
-    </StyledPage>
+    </StyledCartPage>
   );
 }

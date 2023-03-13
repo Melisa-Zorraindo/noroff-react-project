@@ -1,7 +1,8 @@
 import { useProductsStore } from "../../utils/stateManagement";
 import { shallow } from "zustand/shallow";
+import { StyledCartItem } from "./styles";
 
-export default function CartItem({ title, count, price, id }) {
+export default function CartItem({ title, count, price, id, imageUrl }) {
   const { addOne, subtractOne, clearCount } = useProductsStore(
     (state) => ({
       addOne: state.addOne,
@@ -12,18 +13,34 @@ export default function CartItem({ title, count, price, id }) {
   );
 
   function calcSubtotal(price, count) {
-    return price * count;
+    return (price * count).toFixed(2);
   }
 
   return (
-    <>
-      <div>
-        {title}: {count} | Price: {price} | Subtotal:{" "}
-        {calcSubtotal(price, count)}
+    <StyledCartItem>
+      <div className="product-info">
+        <img src={imageUrl} alt={title} />
+        <div>
+          <h2>{title}</h2>
+          <p className="price">{calcSubtotal(price, count)} NOK</p>
+          <div className="quantity">
+            QTY:{" "}
+            <button onClick={() => subtractOne(id)}>
+              <span className="material-symbols-rounded">remove</span>
+            </button>{" "}
+            {count}
+            <button onClick={() => addOne(id)}>
+              <span className="material-symbols-rounded">add</span>
+            </button>
+          </div>
+          <p>(Price per unit: {price} NOK)</p>
+        </div>
       </div>
-      <button onClick={() => subtractOne(id)}>Click me to subtract</button>
-      <button onClick={() => addOne(id)}>Click me to add</button>
-      <button onClick={() => clearCount(id)}>Click me to clear</button>
-    </>
+      <div>
+        <button onClick={() => clearCount(id)}>
+          <span className="material-symbols-rounded">delete_forever</span>
+        </button>
+      </div>
+    </StyledCartItem>
   );
 }
