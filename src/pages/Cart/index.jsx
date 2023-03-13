@@ -45,7 +45,7 @@ export default function Cart() {
   function calcTotal() {
     const vat = parseFloat(calcVAT());
     const subtotal = parseFloat(calcSubtotal());
-    return vat + subtotal;
+    return (vat + subtotal).toFixed(2);
   }
 
   return (
