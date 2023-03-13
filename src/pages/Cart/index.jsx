@@ -1,27 +1,31 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useProductsStore } from "../../utils/stateManagement";
 import { shallow } from "zustand/shallow";
+import { StyledPage } from "../pageStyles";
+import CartItem from "../../components/CartItem";
 
 export default function Cart() {
   useEffect(() => {
     document.title = "Techtopia | Shopping cart";
   }, []);
-  const { availableProducts, addOne, subtractOne, clearCount, clearCart } =
-    useProductsStore(
-      (state) => ({
-        availableProducts: state.availableProducts,
-        addOne: state.addOne,
-        subtractOne: state.subtractOne,
-        clearCount: state.clearCount,
-        clearCart: state.clearCart,
-      }),
-      shallow
-    );
+  const { availableProducts, clearCart } = useProductsStore(
+    (state) => ({
+      availableProducts: state.availableProducts,
+      clearCart: state.clearCart,
+    }),
+    shallow
+  );
+
+  const cartItems = availableProducts.filter((item) => {
+    return item.count > 0;
+  });
 
   let total = [];
-  function calcPrice(price, count) {
-    total.push(price * count);
-  }
+
+  cartItems.forEach((item) => {
+    total.push(item.count * item.price);
+  });
 
   function calcTotal() {
     return total.reduce(
@@ -30,34 +34,28 @@ export default function Cart() {
     );
   }
 
-  const cartItems = availableProducts.filter((item) => {
-    return item.count > 0;
-  });
-
   return (
-    <div>
+    <StyledPage>
       {cartItems.length > 0 ? (
-        cartItems.map((item) => (
-          <div key={item.id}>
-            <div>
-              {item.title}: {item.count} | Price{" "}
-              {item.count === 0 ? 0 : item.price * item.count}
-              {calcPrice(item.price, item.count)}
-            </div>
-            <button onClick={() => subtractOne(item.id)}>
-              Click me to subtract
-            </button>
-            <button onClick={() => addOne(item.id)}>Click me to add</button>
-            <button onClick={() => clearCount(item.id)}>
-              Click me to clear
-            </button>
-          </div>
-        ))
+        <>
+          {cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              count={item.count}
+              price={item.price}
+            />
+          ))}
+          <div>Total: {calcTotal()}</div>
+          <button onClick={() => clearCart()}>Clear cart</button>
+        </>
       ) : (
-        <div>No items in the cart</div>
+        <>
+          <div>There are no items in the cart</div>
+          <Link to={`/`}>Go shopping</Link>
+        </>
       )}
-      <div>Total: {calcTotal()}</div>
-      <button onClick={() => clearCart()}>Clear cart</button>
-    </div>
+    </StyledPage>
   );
 }
