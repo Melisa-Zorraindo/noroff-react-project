@@ -1,36 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
-import { url } from "../../utils/contants";
+import filterByTags from "../../utils/filter";
 
-export default function Electronics() {
-  const [products, setProducts] = useState([]);
-
+export default function Electronics({ products }) {
   useEffect(() => {
     document.title = "Techtopia | Electronics";
-
-    async function fetchProducts() {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchProducts();
   }, []);
 
-  //filter items by tag
-  const electronics = products.filter((product) => {
-    return (
-      product.tags.includes("electronics") ||
-      product.tags.includes("headphones") ||
-      product.tags.includes("watch")
-    );
-  });
+  const electronicsTags = ["electronics", "headphones", "watch"];
+  const electronics = filterByTags(products, electronicsTags);
 
   return (
     <StyledPage>

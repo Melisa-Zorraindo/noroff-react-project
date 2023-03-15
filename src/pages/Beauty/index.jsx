@@ -1,36 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
-import { url } from "../../utils/contants";
+import filterByTags from "../../utils/filter";
 
-export default function Beauty() {
-  const [products, setProducts] = useState([]);
-
+export default function Beauty({ products }) {
   useEffect(() => {
     document.title = "Techtopia | Beauty";
-
-    async function fetchProducts() {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchProducts();
   }, []);
 
-  //filter items by tag
-  const beauty = products.filter((product) => {
-    return (
-      product.tags.includes("beauty") ||
-      product.tags.includes("perfume") ||
-      product.tags.includes("shampoo")
-    );
-  });
+  const beautyTags = ["beauty", "perfume", "shampoo"];
+  const beauty = filterByTags(products, beautyTags);
 
   return (
     <StyledPage>

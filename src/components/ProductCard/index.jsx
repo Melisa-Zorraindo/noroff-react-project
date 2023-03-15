@@ -1,6 +1,8 @@
 import { StyledProductCard } from "./styles";
 import PrimaryButton from "../PrimaryButton";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { useProductsStore } from "../../utils/stateManagement";
+import { shallow } from "zustand/shallow";
 
 export default function ProductCard({
   id,
@@ -13,6 +15,13 @@ export default function ProductCard({
   //desctructure location and params to conditionally display items
   const { pathname } = useLocation();
   const { id: productId } = useParams();
+
+  const { addOne } = useProductsStore(
+    (state) => ({
+      addOne: state.addOne,
+    }),
+    shallow
+  );
 
   return (
     <StyledProductCard location={pathname}>
@@ -37,7 +46,10 @@ export default function ProductCard({
         <p>{discountedPrice} NOK</p>
 
         {pathname === `/src/pages/Product/${productId}` ? (
-          <PrimaryButton text={"Add to cart"} />
+          <PrimaryButton
+            onClick={() => addOne(productId)}
+            text={"Add to cart"}
+          ></PrimaryButton>
         ) : (
           <Link to={`/src/pages/Product/${id}`}>View product</Link>
         )}

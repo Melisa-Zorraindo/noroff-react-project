@@ -9,6 +9,7 @@ export const StyledPrimaryButton = styled.button`
   padding: 0.5rem 0;
   text-align: center;
   font-size: 1.025rem;
+  margin: 1rem 0;
 
   &:hover {
     opacity: 0.9;

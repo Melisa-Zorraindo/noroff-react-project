@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import { StyledPage } from "../pageStyles";
-import { url } from "../../utils/contants";
+import { url } from "../../utils/constants";
 
 export default function SearchResults() {
   const [data, setData] = useState(null);

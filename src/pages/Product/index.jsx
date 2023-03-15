@@ -3,7 +3,7 @@ import { StyledPage } from "../pageStyles";
 import ProductCard from "../../components/ProductCard";
 import ProductReviews from "../../components/ProductReviews";
 import { useParams } from "react-router-dom";
-import { url } from "../../utils/contants";
+import { url } from "../../utils/constants";
 
 export default function Product() {
   const [data, setData] = useState(null);
