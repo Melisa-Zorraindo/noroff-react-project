@@ -40,5 +40,11 @@ export const StyledCartItem = styled.div`
     color: ${({ theme }) => theme.color.highlight};
     border-radius: 4px;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+      background-color: ${({ theme }) => theme.color.highlight};
+      color: ${({ theme }) => theme.color.neutral};
+    }
   }
 `;
