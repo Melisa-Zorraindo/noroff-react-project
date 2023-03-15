@@ -71,7 +71,7 @@ To use this project
 
 - [x] Search bar with autocomplete feature filters products by title
 
-- [ ] Create cart state that adds product to cart when button clicked
+- [x] Create cart state that adds product to cart when button clicked
 
 - [x] Create form on contact page:
 
