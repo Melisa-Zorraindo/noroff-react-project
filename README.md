@@ -57,7 +57,7 @@ To use this project
 
   - [x] Homepage
   - [x] Product page
-  - [ ] Checkout page | Links to checkout success
+  - [x] Checkout page | Links to checkout success
   - [ ] Checkout Success page | Clears cart | Has link to homepage
   - [x] Contact page
 
