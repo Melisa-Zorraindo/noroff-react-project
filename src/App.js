@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const { availableProducts, fetchProducts, isLoading, error } =
@@ -58,6 +59,7 @@ function App() {
         <Route path="/src/pages/Contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/src/pages/SearchResults/:q" element={<SearchResults />} />
+        <Route path="/src/pages/Checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );
