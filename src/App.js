@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 function App() {
   const { availableProducts, fetchProducts, isLoading, error } =
@@ -60,6 +61,10 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/src/pages/SearchResults/:q" element={<SearchResults />} />
         <Route path="/src/pages/Checkout" element={<Checkout />} />
+        <Route
+          path="/src/pages/CheckoutSuccess"
+          element={<CheckoutSuccess />}
+        />
       </Route>
     </Routes>
   );
