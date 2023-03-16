@@ -53,12 +53,12 @@ To use this project
 
 - [x] Create Layout
 
-- [ ] Create pages:
+- [x] Create pages:
 
   - [x] Homepage
   - [x] Product page
-  - [ ] Checkout page | Links to checkout success
-  - [ ] Checkout Success page | Clears cart | Has link to homepage
+  - [x] Checkout page | ~~Links to checkout success~~
+  - [x] Checkout Success page | ~~Clears cart~~ | ~~Has link to homepage~~
   - [x] Contact page
 
 - [x] Route pages
@@ -71,7 +71,7 @@ To use this project
 
 - [x] Search bar with autocomplete feature filters products by title
 
-- [ ] Create cart state that adds product to cart when button clicked
+- [x] Create cart state that adds product to cart when button clicked
 
 - [x] Create form on contact page:
 
@@ -85,22 +85,22 @@ To use this project
 
 - [x] Deploy to Netlify
 
-- [ ] Add testing
+- [9] Add testing
 
-- [ ] Edit README.md
+- [10] Edit README.md
 
-- [ ] Change favicon
+- [6] Change favicon
 
-- [ ] Make a loader component for user feedback when fetching data from API
+- [3] Make a loader component for user feedback when fetching data from API
 
-- [ ] Make a feedback component for: error API, checkout success, not found page
+- [x] Make a feedback component for: ~~error API~~, ~~checkout success~~, ~~not found page~~, ~~no items in cart~~
 
-- [ ] Restructure files: all styles in same folder
+- [8] Restructure files: all styles in same folder
 
-- [ ] Refactor components spread operator Scrimba
+- [7] Refactor components spread operator Scrimba
 
 - [x] Refactor filter and add it to utils
 
-- [ ] Add pop up for item succesfully added to cart
+- [4] Add pop up for item succesfully added to cart
 
-- [ ] Add pop up to confirm item clearance from cart
+- [5] Add pop up to confirm item clearance from cart

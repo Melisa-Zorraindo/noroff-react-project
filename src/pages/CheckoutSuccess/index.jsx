@@ -1,0 +1,20 @@
+import { useEffect } from "react";
+import { StyledPage } from "../pageStyles";
+import Feedback from "../../components/Feedback";
+
+export default function CheckoutSuccess() {
+  useEffect(() => {
+    document.title = "Techtopia | Thank you for your purchase";
+  }, []);
+
+  return (
+    <StyledPage>
+      <Feedback
+        title={"Thank you for your purchase"}
+        message={
+          "Your order is being shipped. You will receive an email with the tracking number shortly"
+        }
+      />
+    </StyledPage>
+  );
+}
