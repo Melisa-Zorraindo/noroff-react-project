@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useProductsStore } from "../../utils/stateManagement";
 import { shallow } from "zustand/shallow";
 import { StyledCartPage } from "./styles";
 import CartItem from "../../components/CartItem";
 import OrderSummary from "../../components/OrderSummary";
+import Feedback from "../../components/Feedback";
 
 export default function Cart() {
   useEffect(() => {
@@ -51,9 +51,9 @@ export default function Cart() {
 
   return (
     <StyledCartPage>
-      <h1>Shopping cart</h1>
       {cartItems.length > 0 ? (
         <>
+          <h1>Shopping cart</h1>
           <div className="purchase">
             {cartItems.map((item) => (
               <CartItem
@@ -75,8 +75,7 @@ export default function Cart() {
         </>
       ) : (
         <div>
-          <div>There are no items in the cart</div>
-          <Link to={`/`}>Go shopping</Link>
+          <Feedback title={"There are no items in the cart"} />
         </div>
       )}
     </StyledCartPage>

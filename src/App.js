@@ -14,6 +14,7 @@ import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
+import Feedback from "./components/Feedback";
 
 function App() {
   const { availableProducts, fetchProducts, isLoading, error } =
@@ -36,7 +37,7 @@ function App() {
   }
 
   if (error) {
-    return <div>An error occurred: {error}</div>;
+    return <Feedback title={"An error occurred"} message={error} />;
   }
 
   return (
