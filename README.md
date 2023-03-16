@@ -89,7 +89,7 @@ To use this project
 
 - [11] Edit README.md
 
-- [6] Change favicon
+- [x] Change favicon
 
 - [x] Make a loader component for user feedback when fetching data from API
 
