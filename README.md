@@ -85,13 +85,13 @@ To use this project
 
 - [x] Deploy to Netlify
 
-- [9] Add testing
+- [10] Add testing
 
-- [10] Edit README.md
+- [11] Edit README.md
 
 - [6] Change favicon
 
-- [3] Make a loader component for user feedback when fetching data from API
+- [x] Make a loader component for user feedback when fetching data from API
 
 - [x] Make a feedback component for: ~~error API~~, ~~checkout success~~, ~~not found page~~, ~~no items in cart~~
 
@@ -104,3 +104,5 @@ To use this project
 - [4] Add pop up for item succesfully added to cart
 
 - [5] Add pop up to confirm item clearance from cart
+
+- [9] Persist items in cart
