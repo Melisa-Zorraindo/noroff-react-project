@@ -105,4 +105,4 @@ To use this project
 
 - [5] Add pop up to confirm item clearance from cart
 
-- [9] Persist items in cart
+- [x] Persist items in cart
