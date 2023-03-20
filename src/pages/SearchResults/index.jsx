@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import { StyledPage } from "../pageStyles";
 import { url } from "../../utils/constants";
+import Feedback from "../../components/Feedback";
+import Loader from "../../components/Loader";
 
 export default function SearchResults() {
   const [data, setData] = useState(null);
@@ -25,6 +27,7 @@ export default function SearchResults() {
         setData(data);
       } catch (error) {
         console.log(error);
+        setIsError(true);
       } finally {
         setIsLoading(false);
       }
@@ -34,11 +37,11 @@ export default function SearchResults() {
   }, [q]);
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {
-    return <div>An error occurred</div>;
+    return <Feedback title={"An error occurred"} />;
   }
 
   const query = data.filter((product) => {
@@ -62,7 +65,10 @@ export default function SearchResults() {
           );
         })
       ) : (
-        <div>Nothing found</div>
+        <Feedback
+          title={"oops..."}
+          message={"We couldn't find any products that match your criteria"}
+        />
       )}
     </StyledPage>
   );

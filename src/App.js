@@ -15,6 +15,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import Feedback from "./components/Feedback";
+import Loader from "./components/Loader";
 
 function App() {
   const { availableProducts, fetchProducts, isLoading, error } =
@@ -33,7 +34,7 @@ function App() {
   }, [fetchProducts]);
 
   if (isLoading || !availableProducts) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {

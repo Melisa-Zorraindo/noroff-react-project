@@ -4,6 +4,8 @@ import ProductCard from "../../components/ProductCard";
 import ProductReviews from "../../components/ProductReviews";
 import { useParams } from "react-router-dom";
 import { url } from "../../utils/constants";
+import Feedback from "../../components/Feedback";
+import Loader from "../../components/Loader";
 
 export default function Product() {
   const [data, setData] = useState(null);
@@ -26,6 +28,7 @@ export default function Product() {
         setData(data);
       } catch (error) {
         console.log(error);
+        setIsError(true);
       } finally {
         setIsLoading(false);
       }
@@ -35,11 +38,11 @@ export default function Product() {
   }, [id]);
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {
-    return <div>An error occurred</div>;
+    return <Feedback title={"An error occurred"} />;
   }
 
   return (
