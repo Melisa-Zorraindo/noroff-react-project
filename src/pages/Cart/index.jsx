@@ -5,6 +5,7 @@ import { StyledCartPage } from "./styles";
 import CartItem from "../../components/CartItem";
 import OrderSummary from "../../components/OrderSummary";
 import Feedback from "../../components/Feedback";
+import ModalDialog from "../../components/ModalDialog";
 
 export default function Cart() {
   useEffect(() => {
@@ -51,6 +52,7 @@ export default function Cart() {
 
   return (
     <StyledCartPage>
+      <ModalDialog text={"Are you sure you want to remove this item?"} />
       {cartItems.length > 0 ? (
         <>
           <h1>Shopping cart</h1>
