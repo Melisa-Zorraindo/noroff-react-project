@@ -27,7 +27,7 @@ export default function OrderSummary({
         <p className="total">Total</p>
         <p className="total">{calcTotal()} NOK</p>
       </div>
-      <Link to={"/src/pages/Checkout"}>Checkout</Link>
+      <Link to={"/src/pages/checkout"}>Checkout</Link>
       <SecondaryButton onClick={() => clearCart()} text={"Clear cart"} />
     </StyledOrderSummary>
   );

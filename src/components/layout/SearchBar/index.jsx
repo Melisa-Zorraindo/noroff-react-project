@@ -69,8 +69,8 @@ export default function SearchBar() {
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
     chosenSuggestion
-      ? navigate(`/src/pages/Product/${chosenSuggestion.id}`)
-      : navigate(`/src/pages/SearchResults/${userInput}`);
+      ? navigate(`/src/pages/product/${chosenSuggestion.id}`)
+      : navigate(`/src/pages/searchResults/${userInput}`);
   }
 
   function navigateSuggestions(direction, target) {
@@ -113,7 +113,7 @@ export default function SearchBar() {
         {suggestions.map((item) => {
           return (
             <li key={item.id} id={item.id}>
-              <Link to={`/src/pages/Product/${item.id}`}>{item.title}</Link>
+              <Link to={`/src/pages/product/${item.id}`}>{item.title}</Link>
             </li>
           );
         })}
