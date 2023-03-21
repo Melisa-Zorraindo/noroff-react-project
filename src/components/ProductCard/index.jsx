@@ -48,9 +48,7 @@ export default function ProductCard({
       <img src={imageUrl} alt={description} />
       <div className="product-data">
         <h2>{title}</h2>
-        {pathname === `/src/pages/productone/${productId}` && (
-          <p>{description}</p>
-        )}
+        {pathname === `/src/pages/product/${productId}` && <p>{description}</p>}
         <div
           className={
             price !== discountedPrice
@@ -67,13 +65,13 @@ export default function ProductCard({
         </div>
         <p>{discountedPrice} NOK</p>
 
-        {pathname === `/src/pages/productone/${productId}` ? (
+        {pathname === `/src/pages/product/${productId}` ? (
           <PrimaryButton
             onClick={() => handleClick(productId)}
             text={"Add to cart"}
           ></PrimaryButton>
         ) : (
-          <Link to={`/src/pages/productone/${id}`}>View product</Link>
+          <Link to={`/src/pages/product/${id}`}>View product</Link>
         )}
       </div>
     </StyledProductCard>
