@@ -1,7 +1,7 @@
-import { useProductsStore } from "../../utils/stateManagement";
+import { useProductsStore } from "../../utils/stateManagement/dataManagement";
 import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
 import { shallow } from "zustand/shallow";
-import { StyledCartItem } from "./styles";
+import { StyledCartItem } from "../../styles/components/CartItem.styles";
 
 export default function CartItem({ title, count, price, id, imageUrl }) {
   const { addOne, subtractOne } = useProductsStore(

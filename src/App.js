@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
-import { useProductsStore } from "./utils/stateManagement";
+import { useProductsStore } from "./utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import Home from "./pages/home";
-import Electronics from "./pages/electronics";
-import Beauty from "./pages/beauty";
-import Fashion from "./pages/fashion";
-import Product from "./pages/product";
-import Contact from "./pages/contact";
-import NotFound from "./pages/notFound";
-import SearchResults from "./pages/searchResults";
-import Cart from "./pages/cart";
-import Checkout from "./pages/checkout";
-import CheckoutSuccess from "./pages/checkoutSuccess";
+import Home from "./pages/homeone";
+import Electronics from "./pages/electronicsone";
+import Beauty from "./pages/beautyone";
+import Fashion from "./pages/fashionone";
+import Product from "./pages/productone";
+import Contact from "./pages/contactone";
+import NotFound from "./pages/notFoundone";
+import SearchResults from "./pages/searchResultsone";
+import Cart from "./pages/cartone";
+import Checkout from "./pages/checkoutone";
+import CheckoutSuccess from "./pages/checkoutSuccessone";
 import Feedback from "./components/Feedback";
 import Loader from "./components/Loader";
 
@@ -44,27 +44,30 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/src/pages/cart" element={<Cart />} />
+        <Route path="/src/pages/cartone" element={<Cart />} />
         <Route index element={<Home products={availableProducts} />} />
         <Route
-          path="/src/pages/electronics"
+          path="/src/pages/electronicsone"
           element={<Electronics products={availableProducts} />}
         />
         <Route
-          path="/src/pages/beauty"
+          path="/src/pages/beautyone"
           element={<Beauty products={availableProducts} />}
         />
         <Route
-          path="/src/pages/fashion"
+          path="/src/pages/fashionone"
           element={<Fashion products={availableProducts} />}
         />
-        <Route path="/src/pages/product/:id" element={<Product />} />
-        <Route path="/src/pages/contact" element={<Contact />} />
+        <Route path="/src/pages/productone/:id" element={<Product />} />
+        <Route path="/src/pages/contactone" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/src/pages/searchResults/:q" element={<SearchResults />} />
-        <Route path="/src/pages/checkout" element={<Checkout />} />
         <Route
-          path="/src/pages/checkoutSuccess"
+          path="/src/pages/searchResultsone/:q"
+          element={<SearchResults />}
+        />
+        <Route path="/src/pages/checkoutone" element={<Checkout />} />
+        <Route
+          path="/src/pages/checkoutSuccessone"
           element={<CheckoutSuccess />}
         />
       </Route>

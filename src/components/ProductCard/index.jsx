@@ -1,8 +1,8 @@
-import { StyledProductCard } from "./styles";
+import { StyledProductCard } from "../../styles/components/ProductCard.styles";
 import PrimaryButton from "../PrimaryButton";
 import ModalDialog from "../ModalDialog";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useProductsStore } from "../../utils/stateManagement";
+import { useProductsStore } from "../../utils/stateManagement/dataManagement";
 import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
 import { shallow } from "zustand/shallow";
 
@@ -48,7 +48,9 @@ export default function ProductCard({
       <img src={imageUrl} alt={description} />
       <div className="product-data">
         <h2>{title}</h2>
-        {pathname === `/src/pages/product/${productId}` && <p>{description}</p>}
+        {pathname === `/src/pages/productone/${productId}` && (
+          <p>{description}</p>
+        )}
         <div
           className={
             price !== discountedPrice
@@ -65,13 +67,13 @@ export default function ProductCard({
         </div>
         <p>{discountedPrice} NOK</p>
 
-        {pathname === `/src/pages/product/${productId}` ? (
+        {pathname === `/src/pages/productone/${productId}` ? (
           <PrimaryButton
             onClick={() => handleClick(productId)}
             text={"Add to cart"}
           ></PrimaryButton>
         ) : (
-          <Link to={`/src/pages/product/${id}`}>View product</Link>
+          <Link to={`/src/pages/productone/${id}`}>View product</Link>
         )}
       </div>
     </StyledProductCard>

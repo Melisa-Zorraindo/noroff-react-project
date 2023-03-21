@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { StyledSearchBar } from "./styles";
+import { StyledSearchBar } from "../../../styles/components/SearchBar.styles";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useProductsStore } from "../../../utils/stateManagement";
+import { useProductsStore } from "../../../utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
 
 export default function SearchBar() {
@@ -69,8 +69,8 @@ export default function SearchBar() {
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
     chosenSuggestion
-      ? navigate(`/src/pages/product/${chosenSuggestion.id}`)
-      : navigate(`/src/pages/searchResults/${userInput}`);
+      ? navigate(`/src/pages/productone/${chosenSuggestion.id}`)
+      : navigate(`/src/pages/searchResultsone/${userInput}`);
   }
 
   function navigateSuggestions(direction, target) {
@@ -113,7 +113,7 @@ export default function SearchBar() {
         {suggestions.map((item) => {
           return (
             <li key={item.id} id={item.id}>
-              <Link to={`/src/pages/product/${item.id}`}>{item.title}</Link>
+              <Link to={`/src/pages/productone/${item.id}`}>{item.title}</Link>
             </li>
           );
         })}

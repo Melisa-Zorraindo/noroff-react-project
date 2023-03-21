@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { url } from "./constants";
+import { url } from "../constants";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 export const useProductsStore = create(

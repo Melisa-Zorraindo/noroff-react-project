@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useProductsStore } from "../../../utils/stateManagement";
+import { useProductsStore } from "../../../utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
 
 export default function Cart() {
@@ -25,7 +25,7 @@ export default function Cart() {
 
   return (
     <div className="cart-container">
-      <Link to="/src/pages/cart" className="cart-wrapper">
+      <Link to="/src/pages/cartone" className="cart-wrapper">
         <span className="material-symbols-rounded">shopping_bag</span>
         <span>{printTotal()}</span>
       </Link>

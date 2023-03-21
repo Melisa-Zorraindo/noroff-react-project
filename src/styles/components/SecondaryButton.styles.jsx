@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledPrimaryButton } from "../PrimaryButton/styles";
+import { StyledPrimaryButton } from "./PrimaryButton.styles";
 
 export const StyledSecondaryButton = styled(StyledPrimaryButton)`
   border: ${({ theme }) =>

@@ -1,4 +1,4 @@
-import { StyledFooter } from "./styles";
+import { StyledFooter } from "../../../styles/components/Footer.styles";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

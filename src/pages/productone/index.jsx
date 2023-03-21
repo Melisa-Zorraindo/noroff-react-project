@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledPage } from "../pageStyles";
+import { StyledPage } from "../../styles/pages/generalPageStyles";
 import ProductCard from "../../components/ProductCard";
 import ProductReviews from "../../components/ProductReviews";
 import { useParams } from "react-router-dom";

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { StyledNavBar } from "./styles";
+import { StyledNavBar } from "../../../styles/components/Nav.styles";
 
 export default function Nav() {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,16 +29,16 @@ export default function Nav() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/electronics">Electronics</NavLink>
+            <NavLink to="/src/pages/electronicsone">Electronics</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/beauty">Beauty</NavLink>
+            <NavLink to="/src/pages/beautyone">Beauty</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/fashion">Fashion</NavLink>
+            <NavLink to="/src/pages/fashionone">Fashion</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/contact">Contact</NavLink>
+            <NavLink to="/src/pages/contactone">Contact</NavLink>
           </li>
         </ul>
       </StyledNavBar>

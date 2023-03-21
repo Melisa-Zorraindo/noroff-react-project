@@ -1,10 +1,10 @@
-import { StyledCheckoutForm } from "./styles";
+import { StyledCheckoutForm } from "../../styles/components/CheckoutForm.styles";
 import PrimaryButton from "../PrimaryButton";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useProductsStore } from "../../utils/stateManagement";
+import { useProductsStore } from "../../utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
 
 const schema = yup
@@ -77,7 +77,7 @@ export default function CheckoutForm() {
 
   function handleSubmission() {
     clearCart();
-    navigate("/src/pages/checkoutSuccess");
+    navigate("/src/pages/checkoutSuccessone");
   }
 
   return (

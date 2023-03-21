@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { StyledCheckoutPage } from "./styles";
+import { StyledCheckoutPage } from "../../styles/pages/checkout.styles";
 import CheckoutForm from "../../components/CheckoutForm";
 
 export default function Checkout() {

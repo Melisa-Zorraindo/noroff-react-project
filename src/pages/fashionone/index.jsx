@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-import { StyledPage } from "../pageStyles";
+import { StyledPage } from "../../styles/pages/generalPageStyles";
 import ProductCard from "../../components/ProductCard";
 import filterByTags from "../../utils/filter";
 
-export default function Beauty({ products }) {
+export default function Fashion({ products }) {
   useEffect(() => {
-    document.title = "Techtopia | Beauty";
+    document.title = "Techtopia | Fashion";
   }, []);
 
-  const beautyTags = ["beauty", "perfume", "shampoo"];
-  const beauty = filterByTags(products, beautyTags);
+  const fashionTags = ["fashion", "shoes", "bags", "glasses"];
+  const fashion = filterByTags(products, fashionTags);
 
   return (
     <StyledPage>
-      <h1>Beauty</h1>
-      {beauty.map((item) => {
+      <h1>Fashion</h1>
+      {fashion.map((item) => {
         return (
           <ProductCard
             key={item.id}
