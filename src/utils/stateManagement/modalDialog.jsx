@@ -2,8 +2,9 @@ import { create } from "zustand";
 
 export const useModalDialogStore = create((set) => ({
   isVisible: false,
-  show: () => {
-    set(() => ({ isVisible: true }));
+  productId: null,
+  show: (productId) => {
+    set(() => ({ isVisible: true, productId }));
     const body = document.body;
     //user can view modal is browsing from small screens
     window.scrollTo({

@@ -3,21 +3,27 @@ import PrimaryButton from "../PrimaryButton";
 import SecondaryButton from "../SecondaryButton";
 import { useLocation } from "react-router-dom";
 import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
+import { useProductsStore } from "../../utils/stateManagement";
 import { shallow } from "zustand/shallow";
 
 export default function ModalDialog({ text }) {
   const { pathname } = useLocation();
 
-  //modal dialog
-  const { isVisible, hide } = useModalDialogStore(
+  const { isVisible, productId, hide } = useModalDialogStore(
     (state) => ({
       isVisible: state.isVisible,
+      productId: state.productId,
       hide: state.hide,
     }),
     shallow
   );
 
-  function handleClick() {
+  const { clearCount } = useProductsStore((state) => ({
+    clearCount: state.clearCount,
+  }));
+
+  function removeCartItem(productId) {
+    clearCount(productId);
     hide();
   }
 
@@ -25,15 +31,18 @@ export default function ModalDialog({ text }) {
     <StyledModalDialog isVisible={isVisible}>
       <div className="modal-box">
         <div className="close-button-container">
-          <button onClick={handleClick}>
+          <button onClick={() => hide()}>
             <span className="material-symbols-rounded">close</span>
           </button>
         </div>
         <h3>{text}</h3>
         {pathname === "/src/pages/Cart" && (
           <div className="buttons-container">
-            <SecondaryButton text={"Yes"} />
-            <PrimaryButton text={"No"} />
+            <SecondaryButton
+              text={"Yes"}
+              onClick={() => removeCartItem(productId)}
+            />
+            <PrimaryButton text={"No"} onClick={() => hide()} />
           </div>
         )}
       </div>

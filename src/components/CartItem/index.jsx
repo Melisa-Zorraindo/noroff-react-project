@@ -1,13 +1,20 @@
 import { useProductsStore } from "../../utils/stateManagement";
+import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
 import { shallow } from "zustand/shallow";
 import { StyledCartItem } from "./styles";
 
 export default function CartItem({ title, count, price, id, imageUrl }) {
-  const { addOne, subtractOne, clearCount } = useProductsStore(
+  const { addOne, subtractOne } = useProductsStore(
     (state) => ({
       addOne: state.addOne,
       subtractOne: state.subtractOne,
-      clearCount: state.clearCount,
+    }),
+    shallow
+  );
+
+  const { show } = useModalDialogStore(
+    (state) => ({
+      show: state.show,
     }),
     shallow
   );
@@ -37,7 +44,7 @@ export default function CartItem({ title, count, price, id, imageUrl }) {
         </div>
       </div>
       <div>
-        <button onClick={() => clearCount(id)}>
+        <button onClick={() => show(id)}>
           <span className="material-symbols-rounded">delete_forever</span>
         </button>
       </div>
