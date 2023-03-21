@@ -1,7 +1,9 @@
 import { StyledProductCard } from "./styles";
 import PrimaryButton from "../PrimaryButton";
+import ModalDialog from "../ModalDialog";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useProductsStore } from "../../utils/stateManagement";
+import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
 import { shallow } from "zustand/shallow";
 
 export default function ProductCard({
@@ -23,8 +25,26 @@ export default function ProductCard({
     shallow
   );
 
+  //modal dialog
+  const { isVisible, show } = useModalDialogStore(
+    (state) => ({
+      isVisible: state.isVisible,
+      show: state.show,
+    }),
+    shallow
+  );
+
+  function handleClick(productId) {
+    addOne(productId);
+    show();
+  }
+
   return (
     <StyledProductCard location={pathname}>
+      <ModalDialog
+        text={"Your item has been added to the cart"}
+        isVisible={isVisible}
+      />
       <img src={imageUrl} alt={description} />
       <div className="product-data">
         <h2>{title}</h2>
@@ -47,7 +67,7 @@ export default function ProductCard({
 
         {pathname === `/src/pages/Product/${productId}` ? (
           <PrimaryButton
-            onClick={() => addOne(productId)}
+            onClick={() => handleClick(productId)}
             text={"Add to cart"}
           ></PrimaryButton>
         ) : (
