@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyledPage } from "../pageStyles";
+import { StyledPage } from "../../styles/pages/generalPageStyles";
 import ProductCard from "../../components/ProductCard";
 import filterByTags from "../../utils/filter";
 

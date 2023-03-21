@@ -1,4 +1,4 @@
-import { StyledContactForm } from "./styles";
+import { StyledContactForm } from "../../styles/components/ContactForm.styles";
 import PrimaryButton from "../PrimaryButton";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";

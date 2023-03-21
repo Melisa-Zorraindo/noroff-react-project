@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { StyledContactPage } from "./styles";
+import { StyledContactPage } from "../../styles/pages/contact.styles";
 import ContactForm from "../../components/ContactForm";
 
 export default function Contact() {

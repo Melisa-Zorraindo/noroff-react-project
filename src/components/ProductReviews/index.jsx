@@ -1,4 +1,4 @@
-import { StyledProductReviews } from "./styles";
+import { StyledProductReviews } from "../../styles/components/ProductReviews.styles";
 
 export default function ProductReviews({ rating, reviews }) {
   let stars = [];

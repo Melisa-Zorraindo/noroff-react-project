@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { StyledPage } from "../pageStyles";
+import { StyledPage } from "../../styles/pages/generalPageStyles";
 import Feedback from "../../components/Feedback";
 
 export default function CheckoutSuccess() {

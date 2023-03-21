@@ -1,9 +1,9 @@
-import { StyledModalDialog } from "./styles";
+import { StyledModalDialog } from "../../styles/components/ModalDialog.styles";
 import PrimaryButton from "../PrimaryButton";
 import SecondaryButton from "../SecondaryButton";
 import { useLocation } from "react-router-dom";
 import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
-import { useProductsStore } from "../../utils/stateManagement";
+import { useProductsStore } from "../../utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
 
 export default function ModalDialog({ text }) {
@@ -36,7 +36,7 @@ export default function ModalDialog({ text }) {
           </button>
         </div>
         <h3>{text}</h3>
-        {pathname === "/src/pages/cart" && (
+        {pathname === "/src/pages/cartone" && (
           <div className="buttons-container">
             <SecondaryButton
               text={"Yes"}

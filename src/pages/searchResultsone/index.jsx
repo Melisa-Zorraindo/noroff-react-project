@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
-import { StyledPage } from "../pageStyles";
+import { StyledPage } from "../../styles/pages/generalPageStyles";
 import { url } from "../../utils/constants";
 import Feedback from "../../components/Feedback";
 import Loader from "../../components/Loader";

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useProductsStore } from "../../utils/stateManagement";
+import { useProductsStore } from "../../utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
-import { StyledCartPage } from "./styles";
+import { StyledCartPage } from "../../styles/pages/cart.styles";
 import CartItem from "../../components/CartItem";
 import OrderSummary from "../../components/OrderSummary";
 import Feedback from "../../components/Feedback";
