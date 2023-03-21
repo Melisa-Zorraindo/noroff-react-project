@@ -36,7 +36,7 @@ export default function ModalDialog({ text }) {
           </button>
         </div>
         <h3>{text}</h3>
-        {pathname === "/src/pages/Cart" && (
+        {pathname === "/src/pages/cart" && (
           <div className="buttons-container">
             <SecondaryButton
               text={"Yes"}

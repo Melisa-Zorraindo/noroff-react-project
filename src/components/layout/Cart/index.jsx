@@ -25,7 +25,7 @@ export default function Cart() {
 
   return (
     <div className="cart-container">
-      <Link to="/src/pages/Cart" className="cart-wrapper">
+      <Link to="/src/pages/cart" className="cart-wrapper">
         <span className="material-symbols-rounded">shopping_bag</span>
         <span>{printTotal()}</span>
       </Link>

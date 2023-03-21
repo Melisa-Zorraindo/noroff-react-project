@@ -77,7 +77,7 @@ export default function CheckoutForm() {
 
   function handleSubmission() {
     clearCart();
-    navigate("/src/pages/CheckoutSuccess");
+    navigate("/src/pages/checkoutSuccess");
   }
 
   return (
