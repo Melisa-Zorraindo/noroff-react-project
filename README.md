@@ -101,8 +101,10 @@ To use this project
 
 - [x] Refactor filter and add it to utils
 
-- [4] Add pop up for item succesfully added to cart
+- [x] Add pop up for item succesfully added to cart
 
-- [5] Add pop up to confirm item clearance from cart
+- [x] Add pop up to confirm item clearance from cart
 
 - [x] Persist items in cart
+
+- [ ] Fix bug contact and checkout form (it allows for spaces)
