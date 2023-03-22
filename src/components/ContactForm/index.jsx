@@ -9,13 +9,14 @@ const schema = yup
   .object({
     fullName: yup
       .string()
+      .trim()
       .matches(/^[a-zA-Z\s]*$/, "Must not contain any numbers or symbols")
       .min(3, "Must be at least 3 characters long")
       .required(),
     subject: yup
       .string()
+      .trim()
       .min(3, "Must be at least 3 characters long")
-
       .required(),
     email: yup
       .string()
@@ -23,6 +24,7 @@ const schema = yup
       .required(),
     body: yup
       .string()
+      .trim()
       .min(3, "Must be at least 3 characters long")
       .max(5000, "Cannot be longer than 5000 characters")
       .required(),

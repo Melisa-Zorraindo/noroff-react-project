@@ -7,34 +7,49 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useProductsStore } from "../../utils/stateManagement/dataManagement";
 import { shallow } from "zustand/shallow";
 
+//used for credit card validation
+const date = new Date();
+const year = date.getFullYear().toString().slice(-2);
+const currentYear = Number(year);
+const expiryYear = Number(currentYear) + 3;
+
 const schema = yup
   .object({
     fullName: yup
       .string()
+      .trim()
       .matches(/^[a-zA-Z\s]*$/, "Must not contain any numbers or symbols")
       .min(3, "Must be at least 3 characters long")
       .required(),
     address: yup
       .string()
+      .trim()
       .min(3, "Must be at least 3 characters long")
       .required(),
     city: yup
       .string()
+      .trim()
       .matches(/^[a-zA-Z\s]*$/, "Must not contain any numbers or symbols")
       .min(3, "Must be at least 3 characters long")
       .required(),
-    code: yup.string().min(2, "Must be at least 2 characters long").required(),
+    code: yup
+      .string()
+      .trim()
+      .min(2, "Must be at least 2 characters long")
+      .required(),
     country: yup.string().required("Please choose a country"),
     email: yup
       .string()
       .matches(/\S+@\S+\.\S+/, "Must be a valid email address")
       .required(),
+    land: yup.string().required("Please choose a land code"),
     phone: yup
       .string()
-      .matches(/^[0-9]+$/, "Must not contain any letters or symbols")
+      .matches(/^[0-9]+$/, "Must not contain any spaces, letters, or symbols")
       .required(),
     cardName: yup
       .string()
+      .trim()
       .matches(/^[a-zA-Z\s]*$/, "Must not contain any numbers or symbols")
       .min(3, "Must be at least 3 characters long")
       .required(),
@@ -46,8 +61,8 @@ const schema = yup
       .required(),
     year: yup
       .number()
-      .min(1, "Year must be between 1 and 12")
-      .max(12, "Year must be between 1 and 12")
+      .min(currentYear, "Year cannot be previous to current year")
+      .max(expiryYear, "Year must be a valid expiry year")
       .integer("Year must be a whole number")
       .required(),
     cvv: yup
@@ -161,7 +176,6 @@ export default function CheckoutForm() {
           <option>República Dominicana</option>
           <option>Uruguay</option>
           <option>Venezuela</option>
-          <option>Cuba</option>
         </select>
         <p className="error-message">{errors.country?.message}</p>
 
@@ -176,16 +190,52 @@ export default function CheckoutForm() {
         ></input>
         <p className="error-message">{errors.email?.message}</p>
 
-        <label htmlFor="phone">Phone number</label>
-        <input
-          {...register("phone", {
-            required: true,
-          })}
-          type="tel"
-          name="phone"
-          placeholder="Phone number"
-        ></input>
-        <p className="error-message">{errors.phone?.message}</p>
+        <div className="small-field">
+          <div>
+            <label htmlFor="land">Land code</label>
+            <select
+              {...register("land", {
+                required: true,
+              })}
+            >
+              <option value="">--Please choose an option--</option>
+              <option>+54 (Argentina)</option>
+              <option>+591 (Bolivia)</option>
+              <option>+56(Chile)</option>
+              <option>+57 (Colombia)</option>
+              <option>+506 (Costa Rica)</option>
+              <option>+53 (Cuba)</option>
+              <option>+593 (Ecuador)</option>
+              <option>+503 (El Salvador)</option>
+              <option>+34 (España)</option>
+              <option>+502 (Guatemala)</option>
+              <option>+504 (Honduras)</option>
+              <option>+52 (México)</option>
+              <option>+505 (Nicaragua)</option>
+              <option>+507 (Panamá)</option>
+              <option>+595 (Paraguay)</option>
+              <option>+51 (Perú)</option>
+              <option>+1 939 (Puerto Rico)</option>
+              <option>+1 809 (República Dominicana)</option>
+              <option>+598 (Uruguay)</option>
+              <option>+58 (Venezuela)</option>
+            </select>
+            <p className="error-message">{errors.land?.message}</p>
+          </div>
+
+          <div>
+            <label htmlFor="phone">Phone number</label>
+            <input
+              {...register("phone", {
+                required: true,
+              })}
+              type="tel"
+              name="phone"
+              placeholder="Phone number"
+            ></input>
+            <p className="error-message">{errors.phone?.message}</p>
+          </div>
+        </div>
       </fieldset>
 
       <fieldset className="payment">
