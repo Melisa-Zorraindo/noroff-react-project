@@ -24,7 +24,6 @@ export default function ProductReviews({ rating, reviews }) {
     <StyledProductReviews>
       <div className="rating-container">
         <h3>Rating</h3>
-        {stars}
       </div>
       <h3>Reviews</h3>
       {userReviews.length > 0 ? (

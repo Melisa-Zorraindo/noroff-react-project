@@ -45,26 +45,27 @@ export default function ProductCard({
         text={"Your item has been added to the cart"}
         isVisible={isVisible}
       />
-      <img src={imageUrl} alt={description} />
-      <div className="product-data">
-        <h2>{title}</h2>
-        {pathname === `/src/pages/product/${productId}` && <p>{description}</p>}
-        <div
-          className={
-            price !== discountedPrice
-              ? "promo-container"
-              : "promo-container-hidden"
-          }
-        >
-          <p className="old-price">{price !== discountedPrice ? price : ""}</p>
+      <div className="product-picture">
+        <img src={imageUrl} alt={description} />
+        {price !== discountedPrice && (
           <p className="discount">
             {price !== discountedPrice &&
               Math.trunc(((price - discountedPrice) / discountedPrice) * 100)}
             {price !== discountedPrice && "% OFF"}
           </p>
+        )}
+      </div>
+      <div className="product-data">
+        <div>
+          <h2>{title}</h2>
+          {pathname === `/src/pages/product/${productId}` && (
+            <p>{description}</p>
+          )}
+          <div className="price-container">
+            {price !== discountedPrice && <p className="old-price">{price}</p>}
+            <p>{discountedPrice} NOK</p>
+          </div>
         </div>
-        <p>{discountedPrice} NOK</p>
-
         {pathname === `/src/pages/product/${productId}` ? (
           <PrimaryButton
             onClick={() => handleClick(productId)}
