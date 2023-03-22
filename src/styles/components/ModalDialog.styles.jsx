@@ -9,6 +9,7 @@ export const StyledModalDialog = styled.div`
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
 
   .modal-box {
     position: absolute;

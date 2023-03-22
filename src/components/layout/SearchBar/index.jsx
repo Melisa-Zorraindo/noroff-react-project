@@ -99,7 +99,7 @@ export default function SearchBar() {
     <StyledSearchBar>
       <div className="input-wrapper">
         <label htmlFor="search-bar"></label>
-        <span className="material-symbols-rounded">search</span>
+        <span className="material-symbols-rounded search-icon">search</span>
         <input
           type="text"
           placeholder="Search"

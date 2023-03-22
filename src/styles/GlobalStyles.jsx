@@ -10,13 +10,14 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Figtree', sans-serif;
-    color: ${({ theme }) => theme.color.highlight};
+  margin: 0 auto;
+  font-family: 'Figtree', sans-serif;
+  color: ${({ theme }) => theme.color.highlight};
+  max-width: 1400px;
 }
 
 ul {

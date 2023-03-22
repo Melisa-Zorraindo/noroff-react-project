@@ -9,25 +9,24 @@ export const StyledProductCard = styled.div`
   width: 17rem;
   padding: 1rem;
 
+  .product-picture {
+    text-align: right;
+    position: relative;
+  }
+
   img {
     max-width: 100%;
-    align-self: center;
   }
 
   .product-data {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    margin: 1rem 0;
   }
 
-  .promo-container {
+  .price-container {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .promo-container-hidden {
-    display: none;
+    gap: 1rem;
   }
 
   .old-price {
@@ -38,7 +37,9 @@ export const StyledProductCard = styled.div`
     background-color: red;
     color: ${({ theme }) => theme.color.neutral};
     padding: 0.3rem;
-    border-radius: 4px;
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
   }
 
   a {
