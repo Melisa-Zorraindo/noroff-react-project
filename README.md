@@ -95,7 +95,7 @@ To use this project
 
 - [x] Make a feedback component for: ~~error API~~, ~~checkout success~~, ~~not found page~~, ~~no items in cart~~
 
-- [8] Restructure files: all styles in same folder
+- [x] Restructure files: all styles in same folder
 
 - [7] Refactor components spread operator Scrimba
 
@@ -107,4 +107,4 @@ To use this project
 
 - [x] Persist items in cart
 
-- [ ] Fix bug contact and checkout form (it allows for spaces)
+- [x] Fix bug contact and checkout form (it allows for spaces)
