@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const StyledCheckoutForm = styled.form`
-  width: 600px;
-  margin-left: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 
   legend {
     margin-bottom: 2rem;
@@ -32,10 +33,13 @@ export const StyledCheckoutForm = styled.form`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   .payment {
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .cvv {
