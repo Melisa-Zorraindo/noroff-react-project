@@ -5,6 +5,7 @@ export const StyledNavBar = styled.nav`
     `${theme.border.thickness} ${theme.border.type} ${theme.color.support}`};
   grid-column: -1/1;
   font-size: 1.1rem;
+  padding-top: 1rem;
 
   ul {
     display: flex;

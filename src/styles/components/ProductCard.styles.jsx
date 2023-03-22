@@ -12,10 +12,14 @@ export const StyledProductCard = styled.div`
   .product-picture {
     text-align: right;
     position: relative;
+    max-height: 18rem;
+    text-align: center;
   }
 
   img {
     max-width: 100%;
+    height: 18rem;
+    object-fit: cover;
   }
 
   .product-data {
