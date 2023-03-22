@@ -62,7 +62,11 @@ export default function ProductCard({
             <p>{description}</p>
           )}
           <div className="price-container">
-            {price !== discountedPrice && <p className="old-price">{price}</p>}
+            {price !== discountedPrice && (
+              <p className="old-price">
+                <span>{price}</span>
+              </p>
+            )}
             <p>{discountedPrice} NOK</p>
           </div>
         </div>
