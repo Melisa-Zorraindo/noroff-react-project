@@ -66,6 +66,7 @@ export default function SearchBar() {
     }
   }
 
+  //remove suggestions from UI when focus changes to outside of searchbar
   function handleFocus() {
     setSuggestions([]);
   }
