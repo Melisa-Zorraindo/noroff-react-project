@@ -55,12 +55,14 @@ const schema = yup
       .required(),
     month: yup
       .number()
+      .typeError("Month is required")
       .min(1, "Month must be between 1 and 12")
       .max(12, "Month must be between 1 and 12")
       .integer("Month must be a whole number")
       .required(),
     year: yup
       .number()
+      .typeError("Year is required")
       .min(currentYear, "Year cannot be previous to current year")
       .max(expiryYear, "Year must be a valid expiry year")
       .integer("Year must be a whole number")
