@@ -29,16 +29,16 @@ export default function Nav() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/electronics">Electronics</NavLink>
+            <NavLink to="/electronics">Electronics</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/beauty">Beauty</NavLink>
+            <NavLink to="/beauty">Beauty</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/fashion">Fashion</NavLink>
+            <NavLink to="/fashion">Fashion</NavLink>
           </li>
           <li>
-            <NavLink to="/src/pages/contact">Contact</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </StyledNavBar>

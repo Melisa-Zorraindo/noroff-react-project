@@ -66,7 +66,7 @@ export const StyledProductCard = styled.div`
 
   //set flex-direction to row-reverse when card is displayed on product page
   ${({ location }) =>
-    location.includes("/src/pages/product") &&
+    location.includes("/product") &&
     `
     flex-direction: row-reverse;
     width: 80%;

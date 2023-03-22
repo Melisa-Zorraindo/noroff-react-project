@@ -8,8 +8,8 @@ export default function Feedback({ title, message }) {
     <StyledFeedback>
       <h1>{title}</h1>
       <p>{message}</p>
-      {(pathname === "/src/pages/checkoutSuccess" ||
-        pathname === "/src/pages/cart") && <Link to={"/"}>Go shopping</Link>}
+      {(pathname === "/checkoutSuccess" ||
+        pathname === "/cart") && <Link to={"/"}>Go shopping</Link>}
     </StyledFeedback>
   );
 }

@@ -94,7 +94,7 @@ export default function CheckoutForm() {
 
   function handleSubmission() {
     clearCart();
-    navigate("/src/pages/checkoutSuccess");
+    navigate("/checkoutSuccess");
   }
 
   return (
