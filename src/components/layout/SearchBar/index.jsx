@@ -66,6 +66,10 @@ export default function SearchBar() {
     }
   }
 
+  function handleFocus() {
+    setSuggestions([]);
+  }
+
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
     chosenSuggestion
@@ -106,6 +110,7 @@ export default function SearchBar() {
           name="search"
           value={userInput}
           onChange={handleChange}
+          onBlur={handleFocus}
           onKeyDown={handleNavigation}
         />
       </div>
