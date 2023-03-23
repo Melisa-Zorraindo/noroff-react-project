@@ -9,6 +9,7 @@ import Beauty from "./pages/beauty";
 import Fashion from "./pages/fashion";
 import Product from "./pages/product";
 import Contact from "./pages/contact";
+import ContactSuccess from "./pages/contactSuccess";
 import NotFound from "./pages/notFound";
 import SearchResults from "./pages/searchResults";
 import Cart from "./pages/cart";
@@ -60,6 +61,7 @@ function App() {
         />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/contactSuccess" element={<ContactSuccess />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/searchResults/:q" element={<SearchResults />} />
         <Route path="/checkout" element={<Checkout />} />

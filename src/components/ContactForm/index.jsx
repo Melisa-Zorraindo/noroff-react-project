@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -42,8 +43,11 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const navigate = useNavigate();
+
   function handleSubmission(data) {
     console.log(data);
+    navigate("/contactSuccess");
   }
 
   return (
