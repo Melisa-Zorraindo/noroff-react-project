@@ -24,14 +24,14 @@ export default function Cart() {
     return item.count > 0;
   });
 
-  let total = [];
+  let subTotal = [];
 
   cartItems.forEach((item) => {
-    total.push(item.count * item.price);
+    subTotal.push(item.count * item.discountedPrice);
   });
 
   function calcSubtotal() {
-    const sum = total.reduce(
+    const sum = subTotal.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
@@ -63,7 +63,7 @@ export default function Cart() {
                 id={item.id}
                 title={item.title}
                 count={item.count}
-                price={item.price}
+                discountedPrice={item.discountedPrice}
                 imageUrl={item.imageUrl}
               />
             ))}

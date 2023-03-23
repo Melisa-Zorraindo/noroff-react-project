@@ -30,13 +30,13 @@ export default function SearchBar() {
     const query = event.target.value.toLowerCase();
     setUserInput(query);
 
-    //delay suggestions to display more accurate results
-    if (query.length > 2) {
-      const filteredSuggestions = availableProducts.filter((product) =>
-        product.title.toLowerCase().includes(query)
-      );
-      setSuggestions(filteredSuggestions);
-    }
+    const filteredSuggestions = availableProducts.filter((product) =>
+      product.title.toLowerCase().includes(query)
+    );
+
+    //limit the suggestions displayed for a better UX
+    const limitedSuggestions = filteredSuggestions.slice(0, 5);
+    setSuggestions(limitedSuggestions);
 
     if (query.length === 0) {
       setSuggestions([]);
@@ -66,11 +66,16 @@ export default function SearchBar() {
     }
   }
 
+  //remove suggestions from UI when focus changes to outside of searchbar
+  function handleFocus() {
+    setSuggestions([]);
+  }
+
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
     chosenSuggestion
-      ? navigate(`/src/pages/product/${chosenSuggestion.id}`)
-      : navigate(`/src/pages/searchResults/${userInput}`);
+      ? navigate(`/product/${chosenSuggestion.id}`)
+      : navigate(`/searchResults/${userInput}`);
   }
 
   function navigateSuggestions(direction, target) {
@@ -106,6 +111,7 @@ export default function SearchBar() {
           name="search"
           value={userInput}
           onChange={handleChange}
+          onBlur={handleFocus}
           onKeyDown={handleNavigation}
         />
       </div>
@@ -113,7 +119,7 @@ export default function SearchBar() {
         {suggestions.map((item) => {
           return (
             <li key={item.id} id={item.id}>
-              <Link to={`/src/pages/product/${item.id}`}>{item.title}</Link>
+              <Link to={`/product/${item.id}`}>{item.title}</Link>
             </li>
           );
         })}

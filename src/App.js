@@ -9,6 +9,7 @@ import Beauty from "./pages/beauty";
 import Fashion from "./pages/fashion";
 import Product from "./pages/product";
 import Contact from "./pages/contact";
+import ContactSuccess from "./pages/contactSuccess";
 import NotFound from "./pages/notFound";
 import SearchResults from "./pages/searchResults";
 import Cart from "./pages/cart";
@@ -44,29 +45,27 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/src/pages/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
         <Route index element={<Home products={availableProducts} />} />
         <Route
-          path="/src/pages/electronics"
+          path="/electronics"
           element={<Electronics products={availableProducts} />}
         />
         <Route
-          path="/src/pages/beauty"
+          path="/beauty"
           element={<Beauty products={availableProducts} />}
         />
         <Route
-          path="/src/pages/fashion"
+          path="/fashion"
           element={<Fashion products={availableProducts} />}
         />
-        <Route path="/src/pages/product/:id" element={<Product />} />
-        <Route path="/src/pages/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/contactSuccess" element={<ContactSuccess />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/src/pages/searchResults/:q" element={<SearchResults />} />
-        <Route path="/src/pages/checkout" element={<Checkout />} />
-        <Route
-          path="/src/pages/checkoutSuccess"
-          element={<CheckoutSuccess />}
-        />
+        <Route path="/searchResults/:q" element={<SearchResults />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkoutSuccess" element={<CheckoutSuccess />} />
       </Route>
     </Routes>
   );

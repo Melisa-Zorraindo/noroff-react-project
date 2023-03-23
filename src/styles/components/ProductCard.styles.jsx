@@ -12,10 +12,14 @@ export const StyledProductCard = styled.div`
   .product-picture {
     text-align: right;
     position: relative;
+    max-height: 18rem;
+    text-align: center;
   }
 
   img {
     max-width: 100%;
+    height: 18rem;
+    object-fit: cover;
   }
 
   .product-data {
@@ -62,7 +66,7 @@ export const StyledProductCard = styled.div`
 
   //set flex-direction to row-reverse when card is displayed on product page
   ${({ location }) =>
-    location.includes("/src/pages/product") &&
+    location.includes("/product") &&
     `
     flex-direction: row-reverse;
     width: 80%;
