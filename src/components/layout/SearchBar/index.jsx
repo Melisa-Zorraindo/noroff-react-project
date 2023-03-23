@@ -30,13 +30,13 @@ export default function SearchBar() {
     const query = event.target.value.toLowerCase();
     setUserInput(query);
 
-    //delay suggestions to display more accurate results
-    if (query.length > 2) {
-      const filteredSuggestions = availableProducts.filter((product) =>
-        product.title.toLowerCase().includes(query)
-      );
-      setSuggestions(filteredSuggestions);
-    }
+    const filteredSuggestions = availableProducts.filter((product) =>
+      product.title.toLowerCase().includes(query)
+    );
+
+    //limit the suggestions displayed for a better UX
+    const limitedSuggestions = filteredSuggestions.slice(0, 5);
+    setSuggestions(limitedSuggestions);
 
     if (query.length === 0) {
       setSuggestions([]);
