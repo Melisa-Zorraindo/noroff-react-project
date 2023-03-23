@@ -3,7 +3,13 @@ import { useModalDialogStore } from "../../utils/stateManagement/modalDialog";
 import { shallow } from "zustand/shallow";
 import { StyledCartItem } from "../../styles/components/CartItem.styles";
 
-export default function CartItem({ title, count, price, id, imageUrl }) {
+export default function CartItem({
+  title,
+  count,
+  discountedPrice,
+  id,
+  imageUrl,
+}) {
   const { addOne, subtractOne } = useProductsStore(
     (state) => ({
       addOne: state.addOne,
@@ -19,8 +25,8 @@ export default function CartItem({ title, count, price, id, imageUrl }) {
     shallow
   );
 
-  function calcSubtotal(price, count) {
-    return (price * count).toFixed(2);
+  function calcSubtotal(discountedPrice, count) {
+    return (discountedPrice * count).toFixed(2);
   }
 
   return (
@@ -29,7 +35,7 @@ export default function CartItem({ title, count, price, id, imageUrl }) {
         <img src={imageUrl} alt={title} />
         <div>
           <h2>{title}</h2>
-          <p className="price">{calcSubtotal(price, count)} NOK</p>
+          <p className="price">{calcSubtotal(discountedPrice, count)} NOK</p>
           <div className="quantity">
             QTY:{" "}
             <button onClick={() => subtractOne(id)}>
@@ -40,7 +46,7 @@ export default function CartItem({ title, count, price, id, imageUrl }) {
               <span className="material-symbols-rounded">add</span>
             </button>
           </div>
-          <p>(Price per unit: {price} NOK)</p>
+          <p>(Price per unit: {discountedPrice} NOK)</p>
         </div>
       </div>
       <div>
