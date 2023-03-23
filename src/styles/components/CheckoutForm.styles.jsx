@@ -25,10 +25,6 @@ export const StyledCheckoutForm = styled.form`
     height: 2rem;
   }
 
-  select {
-    margin-bottom: 1.5rem;
-  }
-
   .small-field {
     display: flex;
     flex-wrap: wrap;
