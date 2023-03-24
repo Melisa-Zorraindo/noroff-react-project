@@ -9,7 +9,6 @@ export const useModalDialogStore = create((set) => ({
     //user can view modal is browsing from small screens
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
     });
     body.style.overflow = "hidden";
   },
