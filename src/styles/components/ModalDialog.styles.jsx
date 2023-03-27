@@ -22,6 +22,7 @@ export const StyledModalDialog = styled.div`
       `${theme.border.thickness} ${theme.border.type} ${theme.color.highlight}`};
     background-color: ${({ theme }) => theme.color.support};
     padding: 0.5rem 1rem;
+    margin: 0;
   }
 
   .close-button-container {
