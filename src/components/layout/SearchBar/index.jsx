@@ -35,7 +35,7 @@ export default function SearchBar() {
     );
 
     //limit the suggestions displayed for a better UX
-    const limitedSuggestions = filteredSuggestions.slice(0, 5);
+    const limitedSuggestions = filteredSuggestions.slice(0, 4);
     setSuggestions(limitedSuggestions);
 
     if (query.length === 0) {

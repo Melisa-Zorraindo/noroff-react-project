@@ -29,7 +29,7 @@ export default function ModalDialog({ text }) {
 
   return (
     <StyledModalDialog isVisible={isVisible}>
-      <div className="modal-box">
+      <dialog className="modal-box" open={isVisible} aria-modal="true">
         <div className="close-button-container">
           <button onClick={() => hide()}>
             <span className="material-symbols-rounded">close</span>
@@ -37,7 +37,7 @@ export default function ModalDialog({ text }) {
         </div>
         <h3>{text}</h3>
         {pathname === "/cart" && (
-          <div className="buttons-container">
+          <div className="buttons-container" role="document">
             <SecondaryButton
               text={"Yes"}
               onClick={() => removeCartItem(productId)}
@@ -45,7 +45,7 @@ export default function ModalDialog({ text }) {
             <PrimaryButton text={"No"} onClick={() => hide()} />
           </div>
         )}
-      </div>
+      </dialog>
     </StyledModalDialog>
   );
 }
