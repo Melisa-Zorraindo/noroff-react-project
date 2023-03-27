@@ -2,7 +2,7 @@
 
 This is an e-commerce site built on React as part of a school project to practise the knowledge acquired during the React course. The site makes use of styled components, zustand for state management, and react hook form. The API used for the project was provided by the school.
 
-The site is a work in progress and has not been delivered or assessed by a teacher yet. A live demo of the current state of the project can be accessed at [https://super-jalebi-36d00a.netlify.app/].
+The site is a work in progress and has not been delivered or assessed by a teacher yet. A live demo of the current state of the project can be accessed at https://super-jalebi-36d00a.netlify.app/.
 
 ## Usage
 
@@ -19,8 +19,9 @@ To use this project
 - Styled components for a modern and consistent look.
 - Zustand for efficient and scalable state management.
 - React hook form for simple and flexible form handling.
+- Yup for easy and efficient form validation.
 
-## Requirements
+## Project requirements
 
 - Homepage with a list of all the products
 - Lookahead/autocomplete search bar that filters products when typing in a product name. Clicking on a product should take a user to an individual product page.
