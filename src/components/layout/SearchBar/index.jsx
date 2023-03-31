@@ -66,11 +66,6 @@ export default function SearchBar() {
     }
   }
 
-  //remove suggestions from UI when focus changes to outside of searchbar
-  function handleFocus() {
-    setSuggestions([]);
-  }
-
   function goToPage() {
     const chosenSuggestion = suggestions[selected];
     chosenSuggestion
@@ -111,7 +106,6 @@ export default function SearchBar() {
           name="search"
           value={userInput}
           onChange={handleChange}
-          onBlur={handleFocus}
           onKeyDown={handleNavigation}
         />
       </div>
