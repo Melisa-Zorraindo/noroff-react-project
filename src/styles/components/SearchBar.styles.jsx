@@ -23,6 +23,7 @@ export const StyledSearchBar = styled.div`
     top: 100%;
     background-color: ${({ theme }) => theme.color.support};
     width: 100%;
+    z-index: 50;
   }
 
   li {
