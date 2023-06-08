@@ -4,7 +4,7 @@
 
 ## Description
 
-Elegant e-commerce site developed as part of the Noroff curriculum, showcasing the seamless synergy of React and JavaScript. Embracing the philosophy of minimalism, this platform offers a clean and uncluttered aesthetic, creating a delightful browsing experience. Styled components effortlessly bring forth a touch of sophistication, while the school-provided API facilitates smooth CRUD operations.https://super-jalebi-36d00a.netlify.app/.
+Elegant e-commerce site developed as part of the Noroff curriculum, showcasing the seamless synergy of React and JavaScript. Embracing the philosophy of minimalism, this platform offers a clean and uncluttered aesthetic, creating a delightful browsing experience. Styled components effortlessly bring forth a touch of sophistication, while the school-provided API facilitates smooth CRUD operations.
 
 ## Built with
 
