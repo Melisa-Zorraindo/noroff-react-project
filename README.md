@@ -1,34 +1,72 @@
-# E-Commerce Site Built on React
+# E-Commerce Site
 
-This is an e-commerce site built on React as part of a school project to practise the knowledge acquired during the React course. The site makes use of styled components, zustand for state management, and react hook form. The API used for the project was provided by the school.
+![e-com](https://github.com/Melisa-Zorraindo/noroff-react-project/assets/76968122/5ccd3d9e-e948-4486-876e-c52610e62035)
 
-The site is a work in progress and has not been delivered or assessed by a teacher yet. A live demo of the current state of the project can be accessed at https://super-jalebi-36d00a.netlify.app/.
+## Description
 
-## Usage
+Elegant e-commerce site developed as part of the Noroff curriculum, showcasing the seamless synergy of React and JavaScript. Embracing the philosophy of minimalism, this platform offers a clean and uncluttered aesthetic, creating a delightful browsing experience. Styled components effortlessly bring forth a touch of sophistication, while the school-provided API facilitates smooth CRUD operations.https://super-jalebi-36d00a.netlify.app/.
 
-To use this project
+## Built with
 
-- clone the repository `git clone https://github.com/Melisa-Zorraindo/noroff-react-project.git`
-- change directory `cd noroff-react-project`
-- run `npm i` to install package dependencies
-- `npm run start` to start the development server
+- React
+- JavaScript
+- Styled components
+- Zustand
+- React hook forms
+- Yup
 
-## Features
+## Getting started
 
-- E-commerce site built on React.
-- Styled components for a modern and consistent look.
-- Zustand for efficient and scalable state management.
-- React hook form for simple and flexible form handling.
-- Yup for easy and efficient form validation.
+### Installing
 
-## Project requirements
+1. Clone the repository
+```bash
+git clone https://github.com/Melisa-Zorraindo/noroff-react-project.git
+```
 
-- Homepage with a list of all the products
-- Lookahead/autocomplete search bar that filters products when typing in a product name. Clicking on a product should take a user to an individual product page.
-- The product page should display the title of the product, the description, the image, the reviews, and the price. If there is a difference between the discountedPrice and price properties, calculate what the discount is and display it on the page.
-- Should use a layout component containing a header and a footer.
-- The header should contain a nav bar as well as a Cart icon component that acts as a button as well as displays the current number of items in the cart.
-- Clicking on the Cart icon will load the Cart page which will list all of the products as well as a total. The Cart page will have a Checkout button at the button. Clicking this Checkout button then goes to a Checkout success page.
-- The Checkout success page will display a message to the user notifying them that their order was successful. There should also be a link that lets a user go back to the store. The cart must be cleared if the user gets to the Checkout success page.
-- There will be a contact page which will contain a contact form. The contact form should have validation
-- The design should be responsive. You’re encouraged to use styled-components or CSS Modules.
+2. Install the dependencies
+```bash
+npm install
+```
+
+### Running
+
+1. Preview the site live
+```bash
+npm run start
+```
+
+## [Link to live demo](https://super-jalebi-36d00a.netlify.app/)
+
+## App Features
+
+- Home page with list of all products
+- Autocomplete searchbar suggests available products as the user types
+- Pages that display products filtered by category
+- Specific product page display dynamic reviews
+- Products added to cart persist in local storage
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository
+2. Create a new branch
+```bash
+git checkout -b new-feature
+```
+3. Make your changes and commit them
+```bash
+git commit -am 'Add new feature'
+```
+4. Push your changes to your forked repository
+```bash
+git push origin new-feature
+```
+5. Open a Pull Request
+
+## Contact
+
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/melisa-zorraindo-81719618b/)
+
+[![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:melisa.zorraindo@gmail.com)
